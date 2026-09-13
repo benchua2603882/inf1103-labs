@@ -1,0 +1,152 @@
+PS C:\Uni stuff\fundamental of programming devops\Lab\Week 2 lab> git log
+commit d8440074eaf53bb6cc57df182561ab6eebdbd334 (HEAD -> master, origin/master)
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 19:06:41 2026 +0800
+
+    renaming file
+
+commit 24fb38c3876a9daac441670181aeb6d8b8e76616
+Merge: 32e253e e161870
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 19:05:04 2026 +0800
+
+    Merge branch 'master' of https://github.com/benchua2603882/inf1103-labs
+
+commit 32e253ef0e2c4fdc6a775b0b8e87c89c15868589
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 19:00:22 2026 +0800
+
+    updating dockerfile name
+
+commit e161870c4e952726f9482060a1a108c679433b57
+Author: BenjaminChua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 18:38:09 2026 +0800
+
+    Rename DockerFile to Dockerfile
+
+commit 956f6ab111aad63accdf47c9e25cfbb3b9e23990
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 18:15:16 2026 +0800
+
+    added dockerfile blueprint
+
+commit 3d5a5b53a5982554e6ed77a744639e87a7055c8f
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 17:40:12 2026 +0800
+
+    testing local commit before pushing
+
+commit 4bef5eb41f32c35eafd5d5810ef066a37aa7faea
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Fri Sep 11 11:55:27 2026 +0800
+
+    logic flow done
+(END)
+    Merge branch 'master' of https://github.com/benchua2603882/inf1103-labs
+
+commit 32e253ef0e2c4fdc6a775b0b8e87c89c15868589
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 19:00:22 2026 +0800
+
+    updating dockerfile name
+
+commit e161870c4e952726f9482060a1a108c679433b57
+Author: BenjaminChua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 18:38:09 2026 +0800
+
+    Rename DockerFile to Dockerfile
+
+commit 956f6ab111aad63accdf47c9e25cfbb3b9e23990
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 18:15:16 2026 +0800
+
+    added dockerfile blueprint
+
+commit 3d5a5b53a5982554e6ed77a744639e87a7055c8f
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 17:40:12 2026 +0800
+
+    testing local commit before pushing
+
+commit 4bef5eb41f32c35eafd5d5810ef066a37aa7faea
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Fri Sep 11 11:55:27 2026 +0800
+
+    logic flow done
+~
+~
+(END)
+    Merge branch 'master' of https://github.com/benchua2603882/inf1103-labs
+
+commit 32e253ef0e2c4fdc6a775b0b8e87c89c15868589
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 19:00:22 2026 +0800
+
+    updating dockerfile name
+
+commit e161870c4e952726f9482060a1a108c679433b57
+Author: BenjaminChua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 18:38:09 2026 +0800
+
+    Rename DockerFile to Dockerfile
+
+commit 956f6ab111aad63accdf47c9e25cfbb3b9e23990
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 18:15:16 2026 +0800
+
+    added dockerfile blueprint
+
+commit 3d5a5b53a5982554e6ed77a744639e87a7055c8f
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 17:40:12 2026 +0800
+
+    testing local commit before pushing
+
+commit 4bef5eb41f32c35eafd5d5810ef066a37aa7faea
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Fri Sep 11 11:55:27 2026 +0800
+
+    logic flow done
+~
+~
+~
+(END)
+    Merge branch 'master' of https://github.com/benchua2603882/inf1103-labs
+
+commit 32e253ef0e2c4fdc6a775b0b8e87c89c15868589
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 19:00:22 2026 +0800
+
+    updating dockerfile name
+
+commit e161870c4e952726f9482060a1a108c679433b57
+Author: BenjaminChua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 18:38:09 2026 +0800
+
+    Rename DockerFile to Dockerfile
+
+commit 956f6ab111aad63accdf47c9e25cfbb3b9e23990
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 18:15:16 2026 +0800
+
+    added dockerfile blueprint
+
+commit 3d5a5b53a5982554e6ed77a744639e87a7055c8f
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 17:40:12 2026 +0800
+
+    testing local commit before pushing
+
+commit 4bef5eb41f32c35eafd5d5810ef066a37aa7faea
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Fri Sep 11 11:55:27 2026 +0800
+
+    logic flow done
+~
+~
+~
+~
+~
+~
+~
+(END)
