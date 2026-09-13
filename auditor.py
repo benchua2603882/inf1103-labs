@@ -49,3 +49,5 @@ while True:
 print("\n--- End of Audit ---")
 print(f"Total Units Processed: {inventory}")
 print(f"Number of Failed/Rejected Entries: {rejected_entries}")
+
+#testing git local commit
