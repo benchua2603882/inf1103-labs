@@ -47,3 +47,7 @@ def generate_report(total_units, failed_attempts):
     print(f"Total Units Processed: {total_units}")
     print(f"Total Deliveries Processed: {deliveries_processed}")
     print(f"Number of Failed/Rejected Entries: {failed_attempts}")
+
+
+main()
+#run app
