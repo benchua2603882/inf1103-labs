@@ -77,6 +77,7 @@ def main():
         # Keep the original warning, but continue until the user types quit.
         if inventory > 500:
             print("ALERT: Overstock! Inventory exceeds 500 units.")
+            break
 
     generate_report(inventory, failed_attempts)
 
