@@ -57,7 +57,7 @@ def main():
     failed_attempts = 0
     deliveries_processed = 0
 
-    print("=== Smart Inventory Auditor ===")
+    print("=== Smart Inventory Modular Auditor ===")
     print("Enter daily stock quantities as whole numbers.")
     print("Type 'quit' when you are done.\n")
 
