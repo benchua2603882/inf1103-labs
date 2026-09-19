@@ -1,3 +1,25 @@
+commit 8be9a67e1eb328370f3541872d2cc7e9a8ad4406 (HEAD -> master, origin/master)
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:53:35 2026 +0800
+
+    add running app command
+
+commit c4cfe3ad2202c3f10099496aa6b3121c24523708
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:45:17 2026 +0800
+
+    editing dockerfile
+
+commit abc3406941324378ef28db3be910029057b66e6b
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:38:49 2026 +0800
+
+    updating dockerfile CMD and gitlog
+
+commit 990507a628bf92a2d4e6903d8ea84c22953990d9
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:30:47 2026 +0800
+
 commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
 Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
 Date:   Sat Sep 19 16:30:47 2026 +0800
