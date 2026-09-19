@@ -49,5 +49,37 @@ def generate_report(total_units, failed_attempts):
     print(f"Number of Failed/Rejected Entries: {failed_attempts}")
 
 
-main()
+def main():
+    """Coordinate input, delivery processing, tax calculation, and reporting."""
+    global failed_attempts, deliveries_processed
+
+    inventory = 0
+    failed_attempts = 0
+    deliveries_processed = 0
+
+    print("=== Smart Inventory Auditor ===")
+    print("Enter daily stock quantities as whole numbers.")
+    print("Type 'quit' when you are done.\n")
+
+    while True:
+        quantity = get_valid_input()
+
+        if quantity == "quit":
+            break
+
+        inventory = process_delivery(inventory, quantity)
+        tax = calculate_tax(quantity)
+        deliveries_processed += 1
+
+        print(f"Accepted {quantity} units. Current inventory: {inventory}")
+        print(f"Tax for this delivery (10%): {tax:.2f}")
+
+        # Keep the original warning, but continue until the user types quit.
+        if inventory > 500:
+            print("ALERT: Overstock! Inventory exceeds 500 units.")
+
+    generate_report(inventory, failed_attempts)
+
+
 #run app
+    main()
