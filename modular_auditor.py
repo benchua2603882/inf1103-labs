@@ -4,7 +4,7 @@ deliveries_processed = 0
 
 
 def get_valid_input():
-    """Keep prompting until the user enters a valid integer or 'quit'."""
+    # Keep prompting until the user enters a valid integer or 'quit'.
     global failed_attempts
 
     while True:
@@ -30,3 +30,12 @@ def get_valid_input():
             # Python may reject an unusually long string of digits.
             print("Error: Quantity is too large. Please enter a smaller number.")
             failed_attempts += 1
+
+def process_delivery(current_total, new_value):
+    # Return the inventory total after adding this delivery.
+    return current_total + new_value
+
+
+def calculate_tax(amount):
+    # Return 10% of this delivery amount, as required by the tutorial.
+    return amount * 0.10
