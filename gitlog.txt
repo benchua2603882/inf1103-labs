@@ -1,3 +1,9 @@
+commit ed66808a146e204da57455448ac67306721d4073 (HEAD -> master, origin/master)
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 17:03:23 2026 +0800
+
+     add break when qty >500
+
 commit fd4ce4a33b3a4a0a0b8614b2b0d7ebf63076a83f (HEAD -> master, origin/master)
 Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
 Date:   Sat Sep 19 16:57:49 2026 +0800
