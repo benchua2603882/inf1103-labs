@@ -1,4 +1,89 @@
-PS C:\Uni stuff\fundamental of programming devops\Lab\Week 2 lab> git log
+commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:30:47 2026 +0800
+
+    converting generate report into function mode
+
+commit e81d0dc837b65706c6d83715de8aaeb69226f24b
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:10:20 2026 +0800
+
+:
+commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:30:47 2026 +0800
+
+    converting generate report into function mode
+
+commit e81d0dc837b65706c6d83715de8aaeb69226f24b
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:10:20 2026 +0800
+
+    creating tax caulcation and new total calculation function
+
+commit c40266538f2db2d6ffe16c945abde95cf9e43c45
+:
+commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:30:47 2026 +0800
+
+    converting generate report into function mode
+
+commit e81d0dc837b65706c6d83715de8aaeb69226f24b
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:10:20 2026 +0800
+
+    creating tax caulcation and new total calculation function
+
+commit c40266538f2db2d6ffe16c945abde95cf9e43c45
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:05:43 2026 +0800
+
+    converting user input validation into function
+:
+commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:30:47 2026 +0800
+
+    converting generate report into function mode
+
+commit e81d0dc837b65706c6d83715de8aaeb69226f24b
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:10:20 2026 +0800
+
+    creating tax caulcation and new total calculation function
+
+commit c40266538f2db2d6ffe16c945abde95cf9e43c45
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:05:43 2026 +0800
+
+    converting user input validation into function
+
+:
+commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:30:47 2026 +0800
+
+    converting generate report into function mode
+
+commit e81d0dc837b65706c6d83715de8aaeb69226f24b
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:10:20 2026 +0800
+
+    creating tax caulcation and new total calculation function
+
+commit c40266538f2db2d6ffe16c945abde95cf9e43c45
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:05:43 2026 +0800
+
+    converting user input validation into function
+
+commit 1089a8214ca6cf00d67a4382b6911f197601cee4
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Sun Sep 13 19:21:26 2026 +0800
+
+    updating with lab submission requirement
+    
 commit d8440074eaf53bb6cc57df182561ab6eebdbd334 (HEAD -> master, origin/master)
 Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
 Date:   Sun Sep 13 19:06:41 2026 +0800

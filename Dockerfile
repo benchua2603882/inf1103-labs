@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY auditor.py .
 
-CMD ["python", "auditor.py"]
+CMD ["python", "modular_auditor.py"]
 
 # Build and run the Docker image with the following commands:
