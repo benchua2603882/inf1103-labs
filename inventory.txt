@@ -1,0 +1,2 @@
+Inventory: 7
+Transaction History: 2,5
