@@ -3,7 +3,7 @@ deliveries_processed = 0
 
 
 def load_inventory():
-    # Load the previously saved inventory total and transaction history.
+    # Load the previously saved inventory total, transaction history, and orders.
     # If inventory.txt does not exist, start with an empty inventory and history.
     try:
         with open("inventory.txt", "r") as file:
@@ -11,37 +11,54 @@ def load_inventory():
 
         inventory = 0
         transaction_history = []
+        orders = []
 
-        if len(lines) >= 1:
-            inventory = int(lines[0].replace("Inventory:", "").strip())
+        for line in lines:
+            line = line.strip()
 
-        if len(lines) >= 2:
-            history_data = lines[1].replace("Transaction History:", "").strip()
+            if line.startswith("Inventory:"):
+                inventory = int(line.replace("Inventory:", "").strip())
 
-            if history_data:
-                transaction_history = [
-                    int(value.strip())
-                    for value in history_data.split(",")
-                    if value.strip()
-                ]
+            elif line.startswith("Transaction History:"):
+                history_data = line.replace("Transaction History:", "").strip()
 
-        return inventory, transaction_history
+                if history_data:
+                    transaction_history = [
+                        int(value.strip())
+                        for value in history_data.split(",")
+                        if value.strip()
+                    ]
+
+            elif line.startswith("Order:"):
+                order_data = line.replace("Order:", "").strip()
+                parts = order_data.split(",", 2)
+
+                if len(parts) == 3:
+                    order_id = int(parts[0].strip())
+                    product_name = parts[1].strip()
+                    quantity = int(parts[2].strip())
+                    orders.append((order_id, product_name, quantity))
+
+        return inventory, transaction_history, orders
 
     except FileNotFoundError:
-        return 0, []
+        return 0, [], []
     except (ValueError, OSError):
         # If the saved file cannot be read correctly, start safely from empty data.
         print("Warning: inventory.txt could not be loaded. Starting with empty inventory.")
-        return 0, []
+        return 0, [], []
 
 
-def save_inventory(inventory, transaction_history):
-    # Save the final inventory total and every valid transaction amount.
+def save_inventory(inventory, transaction_history, orders):
+    # Save the final inventory total, transaction history, and all order details.
     with open("inventory.txt", "w") as file:
         file.write(f"Inventory: {inventory}\n")
         file.write("Transaction History: ")
         file.write(",".join(str(value) for value in transaction_history))
         file.write("\n")
+
+        for order_id, product_name, quantity in orders:
+            file.write(f"Order: {order_id},{product_name},{quantity}\n")
 
 
 def get_valid_input():
@@ -95,21 +112,37 @@ def main():
     """Coordinate input, delivery processing, tax calculation, and reporting."""
     global failed_attempts, deliveries_processed
 
-    inventory, transaction_history = load_inventory()
+    inventory, transaction_history, orders = load_inventory()
     failed_attempts = 0
     deliveries_processed = len(transaction_history)
 
+    # Continue the ID sequence from the last saved order.
+    if orders:
+        next_order_id = max(order[0] for order in orders) + 1
+    else:
+        next_order_id = 1001
+
     print("=== Smart Inventory Modular Auditor ===")
     print("Enter daily stock quantities as whole numbers.")
-    print("Type 'quit' when you are done.")
-    print(f"Starting inventory: {inventory}\n")
+    print("Type 'quit' when you are done.\n")
+
+    # Display all previously saved orders when the program starts.
+    print("Current Orders:\n")
+
+    if orders:
+        for order_id, product_name, quantity in orders:
+            print(f"{order_id}, {product_name}, {quantity}")
+    else:
+        print("No current orders.")
+
+    print()
 
     while True:
         product_name = input("Enter Product Name: ").strip()
 
         if product_name.lower() == "quit":
-            save_inventory(inventory, transaction_history)
-            print("Inventory and transaction history saved to inventory.txt.")
+            save_inventory(inventory, transaction_history, orders)
+            print("Orders successfully saved to inventory.txt.")
             break
 
         while not product_name:
@@ -117,16 +150,16 @@ def main():
             product_name = input("Enter Product Name: ").strip()
 
             if product_name.lower() == "quit":
-                save_inventory(inventory, transaction_history)
-                print("Inventory and transaction history saved to inventory.txt.")
+                save_inventory(inventory, transaction_history, orders)
+                print("Orders successfully saved to inventory.txt.")
                 generate_report(inventory, failed_attempts)
                 return
 
         quantity = get_valid_input()
 
         if quantity == "quit":
-            save_inventory(inventory, transaction_history)
-            print("Inventory and transaction history saved to inventory.txt.")
+            save_inventory(inventory, transaction_history, orders)
+            print("Orders successfully saved to inventory.txt.")
             break
 
         inventory = process_delivery(inventory, quantity)
@@ -134,11 +167,20 @@ def main():
         tax = calculate_tax(quantity)
         deliveries_processed += 1
 
-        print("\nNew Delivery Added:")
-        print(f"Product Name: {product_name}")
-        print(f"Quantity: {quantity}")
+        # Automatically assign a unique order ID starting from 1001.
+        order_id = next_order_id
+        next_order_id += 1
+
+        # Store ID, product name, and quantity together.
+        orders.append((order_id, product_name, quantity))
+
+        # Save after every valid new order so its ID is remembered.
+        save_inventory(inventory, transaction_history, orders)
+
+        print("\nNew Order Added:")
+        print(f"{order_id}, {product_name}, {quantity}")
         print(f"Current inventory: {inventory}")
-        print(f"Tax for this delivery (10%): {tax:.2f}")
+        print(f"Tax for this delivery (10%): {tax:.2f}\n")
 
         # Keep the original warning, but continue until the user types quit.
         if inventory > 500:
