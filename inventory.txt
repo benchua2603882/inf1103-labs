@@ -1,8 +1,9 @@
-Inventory: 46
-Transaction History: 4,3,2,33,2,2
+Inventory: 48
+Transaction History: 4,3,2,33,2,2,2
 Order: 1001,laptop 1,4
 Order: 1002,netbook 9,3
 Order: 1003,headphone,2
 Order: 1004,earpiece,33
 Order: 1005,hellopad,2
 Order: 1006,nig phone,2
+Order: 1007,laptop promax,2
