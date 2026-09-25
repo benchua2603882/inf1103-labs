@@ -5,6 +5,8 @@ deliveries_processed = 0
 def load_inventory():
     # Load the previously saved inventory total, transaction history, and orders.
     # If inventory.txt does not exist, start with an empty inventory and history.
+
+    
     try:
         with open("inventory.txt", "r") as file:
             lines = file.readlines()

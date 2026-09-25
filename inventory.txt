@@ -1,6 +1,8 @@
-Inventory: 15
-Transaction History: 3,5,1,6
-Order: 1001,lenovo laptop 2,3
-Order: 1002,acer netbook,5
-Order: 1003,wireless headset,1
-Order: 1004,hello console,6
+Inventory: 46
+Transaction History: 4,3,2,33,2,2
+Order: 1001,laptop 1,4
+Order: 1002,netbook 9,3
+Order: 1003,headphone,2
+Order: 1004,earpiece,33
+Order: 1005,hellopad,2
+Order: 1006,nig phone,2
