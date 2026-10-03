@@ -4,20 +4,36 @@
         "name": "Laptop",
         "price": 1200.0,
         "stock": 15,
-        "transaction_history": [15]
+        "transaction_history": [
+            15
+        ]
     },
     {
         "id": "P002",
         "name": "Mouse",
         "price": 25.5,
-        "stock": 40,
-        "transaction_history": [40]
+        "stock": 50,
+        "transaction_history": [
+            40,
+            10
+        ]
     },
     {
         "id": "P003",
         "name": "Keyboard",
         "price": 45.0,
         "stock": 25,
-        "transaction_history": [25]
+        "transaction_history": [
+            25
+        ]
+    },
+    {
+        "id": "P004",
+        "name": "Monitor",
+        "price": 299.99,
+        "stock": 10,
+        "transaction_history": [
+            10
+        ]
     }
 ]

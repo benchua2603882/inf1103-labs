@@ -1,4 +1,34 @@
-commit 807b9e1193001eb42979dc462c61874ec9c0ec4e (HEAD -> master, origin/master)
+commit f1b0101600d70ad4617acea9c92fd65f4901a85d
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Oct 3 15:41:05 2026 +0800
+
+    final save_inventory() and implemented inventory menu
+
+commit 1672772813a95183145ce0b9ce96b812f7541dfd
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Oct 3 15:37:09 2026 +0800
+
+    implemented load_inventory()
+
+commit 5c2b8c15d4a7c9688dfebcb89ea2162a46d805af
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Oct 3 15:36:17 2026 +0800
+
+    created dictionary and added three products
+
+commit 6a8e76caeb904e4bb58a503923c7415b53b62751
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Fri Sep 25 11:46:54 2026 +0800
+
+    add proof of python file running
+
+commit 2de692c727215f84c95d66c5bc6fe6b1ab8ae5a3
+Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
+Date:   Fri Sep 25 11:19:06 2026 +0800
+
+    update git log
+
+commit 807b9e1193001eb42979dc462c61874ec9c0ec4e
 Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
 Date:   Fri Sep 25 11:16:47 2026 +0800
 
@@ -31,27 +61,51 @@ Date:   Sat Sep 19 17:09:07 2026 +0800
 
     updated gitlog and uploade docker images
 
-commit bbaf2dd589be28fd206dafd897343f9a7f63c284 (HEAD -> master, origin/master)
+commit bbaf2dd589be28fd206dafd897343f9a7f63c284
 Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
 Date:   Sat Sep 19 17:08:25 2026 +0800
 
     updated title
 
-commit ed66808a146e204da57455448ac67306721d4073 (HEAD -> master, origin/master)
+commit 022c604133a7493e99eb226f4be142b55c0417cf
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 17:03:57 2026 +0800
+
+    updated gitlog.txt
+
+commit ed66808a146e204da57455448ac67306721d4073
 Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
 Date:   Sat Sep 19 17:03:23 2026 +0800
 
      add break when qty >500
 
-commit fd4ce4a33b3a4a0a0b8614b2b0d7ebf63076a83f (HEAD -> master, origin/master)
+commit 508b27cdfe1bde443c0687e56d62d85c21018e5f
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:58:32 2026 +0800
+
+     edited gitlog.txt
+
+commit fd4ce4a33b3a4a0a0b8614b2b0d7ebf63076a83f
 Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
 Date:   Sat Sep 19 16:57:49 2026 +0800
 
     edited main() function indentation
 
-commit 8be9a67e1eb328370f3541872d2cc7e9a8ad4406 (HEAD -> master, origin/master)
+commit 3e447413136279f1b319957435f8ff1493105a86
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:55:09 2026 +0800
+
+    editing gitlog text file
+
+commit 8be9a67e1eb328370f3541872d2cc7e9a8ad4406
 Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
 Date:   Sat Sep 19 16:53:35 2026 +0800
+
+    add running app command
+
+commit ad84d8e8453e4d0a7d6daddb3fba7e6292fb556d
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 16:51:59 2026 +0800
 
     add running app command
 
@@ -68,72 +122,6 @@ Date:   Sat Sep 19 16:38:49 2026 +0800
     updating dockerfile CMD and gitlog
 
 commit 990507a628bf92a2d4e6903d8ea84c22953990d9
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:30:47 2026 +0800
-
-commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:30:47 2026 +0800
-
-    converting generate report into function mode
-
-commit e81d0dc837b65706c6d83715de8aaeb69226f24b
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:10:20 2026 +0800
-
-:
-commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:30:47 2026 +0800
-
-    converting generate report into function mode
-
-commit e81d0dc837b65706c6d83715de8aaeb69226f24b
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:10:20 2026 +0800
-
-    creating tax caulcation and new total calculation function
-
-commit c40266538f2db2d6ffe16c945abde95cf9e43c45
-:
-commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:30:47 2026 +0800
-
-    converting generate report into function mode
-
-commit e81d0dc837b65706c6d83715de8aaeb69226f24b
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:10:20 2026 +0800
-
-    creating tax caulcation and new total calculation function
-
-commit c40266538f2db2d6ffe16c945abde95cf9e43c45
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:05:43 2026 +0800
-
-    converting user input validation into function
-:
-commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:30:47 2026 +0800
-
-    converting generate report into function mode
-
-commit e81d0dc837b65706c6d83715de8aaeb69226f24b
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:10:20 2026 +0800
-
-    creating tax caulcation and new total calculation function
-
-commit c40266538f2db2d6ffe16c945abde95cf9e43c45
-Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
-Date:   Sat Sep 19 16:05:43 2026 +0800
-
-    converting user input validation into function
-
-:
-commit 990507a628bf92a2d4e6903d8ea84c22953990d9 (HEAD -> master, origin/master)
 Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
 Date:   Sat Sep 19 16:30:47 2026 +0800
 
@@ -156,8 +144,8 @@ Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
 Date:   Sun Sep 13 19:21:26 2026 +0800
 
     updating with lab submission requirement
-    
-commit d8440074eaf53bb6cc57df182561ab6eebdbd334 (HEAD -> master, origin/master)
+
+commit d8440074eaf53bb6cc57df182561ab6eebdbd334
 Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
 Date:   Sun Sep 13 19:06:41 2026 +0800
 
@@ -199,112 +187,3 @@ Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
 Date:   Fri Sep 11 11:55:27 2026 +0800
 
     logic flow done
-(END)
-    Merge branch 'master' of https://github.com/benchua2603882/inf1103-labs
-
-commit 32e253ef0e2c4fdc6a775b0b8e87c89c15868589
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 19:00:22 2026 +0800
-
-    updating dockerfile name
-
-commit e161870c4e952726f9482060a1a108c679433b57
-Author: BenjaminChua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 18:38:09 2026 +0800
-
-    Rename DockerFile to Dockerfile
-
-commit 956f6ab111aad63accdf47c9e25cfbb3b9e23990
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 18:15:16 2026 +0800
-
-    added dockerfile blueprint
-
-commit 3d5a5b53a5982554e6ed77a744639e87a7055c8f
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 17:40:12 2026 +0800
-
-    testing local commit before pushing
-
-commit 4bef5eb41f32c35eafd5d5810ef066a37aa7faea
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Fri Sep 11 11:55:27 2026 +0800
-
-    logic flow done
-~
-~
-(END)
-    Merge branch 'master' of https://github.com/benchua2603882/inf1103-labs
-
-commit 32e253ef0e2c4fdc6a775b0b8e87c89c15868589
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 19:00:22 2026 +0800
-
-    updating dockerfile name
-
-commit e161870c4e952726f9482060a1a108c679433b57
-Author: BenjaminChua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 18:38:09 2026 +0800
-
-    Rename DockerFile to Dockerfile
-
-commit 956f6ab111aad63accdf47c9e25cfbb3b9e23990
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 18:15:16 2026 +0800
-
-    added dockerfile blueprint
-
-commit 3d5a5b53a5982554e6ed77a744639e87a7055c8f
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 17:40:12 2026 +0800
-
-    testing local commit before pushing
-
-commit 4bef5eb41f32c35eafd5d5810ef066a37aa7faea
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Fri Sep 11 11:55:27 2026 +0800
-
-    logic flow done
-~
-~
-~
-(END)
-    Merge branch 'master' of https://github.com/benchua2603882/inf1103-labs
-
-commit 32e253ef0e2c4fdc6a775b0b8e87c89c15868589
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 19:00:22 2026 +0800
-
-    updating dockerfile name
-
-commit e161870c4e952726f9482060a1a108c679433b57
-Author: BenjaminChua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 18:38:09 2026 +0800
-
-    Rename DockerFile to Dockerfile
-
-commit 956f6ab111aad63accdf47c9e25cfbb3b9e23990
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 18:15:16 2026 +0800
-
-    added dockerfile blueprint
-
-commit 3d5a5b53a5982554e6ed77a744639e87a7055c8f
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Sun Sep 13 17:40:12 2026 +0800
-
-    testing local commit before pushing
-
-commit 4bef5eb41f32c35eafd5d5810ef066a37aa7faea
-Author: Benjaminchua <2603882@sit.singaporetech.edu.sg>
-Date:   Fri Sep 11 11:55:27 2026 +0800
-
-    logic flow done
-~
-~
-~
-~
-~
-~
-~
-(END)
