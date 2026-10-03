@@ -1,3 +1,9 @@
+commit ec56269728bdc2f926dad7c657236944db6f5932 (HEAD -> master, origin/master)
+Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
+Date:   Sat Oct 3 15:51:53 2026 +0800
+
+    update dockerfile and upload inventory json file
+
 commit f1b0101600d70ad4617acea9c92fd65f4901a85d
 Author: benchua2603882 <2603882@sit.singaporetech.edu.sg>
 Date:   Sat Oct 3 15:41:05 2026 +0800

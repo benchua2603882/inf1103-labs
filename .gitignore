@@ -6,3 +6,8 @@ persistent_auditor_docker_images.png
 __pycache__/
 .lab5-test-data/
 2603882_Week_5_lab.zip
+week5_docker_images.txt
+.gitignore
+week5_docker_run.txt
+WEEK5_README.md
+week5_docker_reload.txt
