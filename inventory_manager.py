@@ -1,3 +1,23 @@
+import json
+from pathlib import Path
+
+
+INVENTORY_FILE = Path(__file__).with_name("inventory.json")
+
+
+def load_inventory(filename=INVENTORY_FILE):
+    # A new installation starts empty when no saved file exists.
+    if not Path(filename).exists():
+        print("inventory.json not found. Starting with an empty inventory.")
+        return []
+
+    print("inventory.json found.")
+    with open(filename, "r", encoding="utf-8") as file:
+        inventory = json.load(file)
+    print("Inventory loaded successfully.")
+    return inventory
+
+
 def display_all(inventory):
     # Each product is a dictionary; inventory is a list of products.
     print("\nCurrent Inventory")
@@ -13,11 +33,7 @@ def display_all(inventory):
 
 
 def main():
-    inventory = [
-        {"id": "P001", "name": "Laptop", "price": 1200.00, "stock": 15},
-        {"id": "P002", "name": "Mouse", "price": 25.50, "stock": 40},
-        {"id": "P003", "name": "Keyboard", "price": 45.00, "stock": 25},
-    ]
+    inventory = load_inventory()
     display_all(inventory)
 
 
