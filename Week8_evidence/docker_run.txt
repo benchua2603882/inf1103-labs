@@ -1,0 +1,71 @@
+========================================
+INVENTORY MANAGEMENT SYSTEM
+========================================
+inventory.json found.
+Inventory loaded successfully.
+
+----------- MENU -----------
+1. Display All Products
+2. Add Product
+3. Update Stock
+4. Search Product
+5. Save Inventory
+6. Exit
+----------------------------
+Enter option: 
+Current Inventory
+------------------------------------------------------------
+ID: P001 | Name: Laptop | Price: $1200.00 | Stock: 15
+ID: P002 | Name: Mouse | Price: $25.50 | Stock: 50
+ID: P003 | Name: Keyboard | Price: $45.00 | Stock: 25
+ID: P004 | Name: Monitor | Price: $299.99 | Stock: 10
+------------------------------------------------------------
+
+----------- MENU -----------
+1. Display All Products
+2. Add Product
+3. Update Stock
+4. Search Product
+5. Save Inventory
+6. Exit
+----------------------------
+Enter option: 
+Update Stock
+Enter Product ID: Name: Laptop
+Current Stock: 15
+New Stock Quantity: Stock updated successfully!
+
+----------- MENU -----------
+1. Display All Products
+2. Add Product
+3. Update Stock
+4. Search Product
+5. Save Inventory
+6. Exit
+----------------------------
+Enter option: Enter Product ID: 
+Product Found
+ID: P001 | Name: Laptop | Price: $1200.00 | Stock: 16
+
+----------- MENU -----------
+1. Display All Products
+2. Add Product
+3. Update Stock
+4. Search Product
+5. Save Inventory
+6. Exit
+----------------------------
+Enter option: Saving inventory...
+Inventory saved successfully to inventory.json.
+
+----------- MENU -----------
+1. Display All Products
+2. Add Product
+3. Update Stock
+4. Search Product
+5. Save Inventory
+6. Exit
+----------------------------
+Enter option: Saving inventory before exit...
+Inventory saved successfully to inventory.json.
+Thank you for using Inventory Management System.

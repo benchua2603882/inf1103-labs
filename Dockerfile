@@ -2,8 +2,8 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY inventory_manager.py .
+COPY inventory_manager.py inventory_storage.py inventory.py product.py ./
 
 CMD ["python", "inventory_manager.py"]
 
-# Bind mount inventory.json into /app/inventory.json to keep saved data.
+# Mount the project folder at /app to use local code and persist inventory.json.

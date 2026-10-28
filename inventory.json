@@ -3,9 +3,10 @@
         "id": "P001",
         "name": "Laptop",
         "price": 1200.0,
-        "stock": 15,
+        "stock": 16,
         "transaction_history": [
-            15
+            15,
+            1
         ]
     },
     {

@@ -1,0 +1,24 @@
+test_constructor_and_display (test_product.ProductTests.test_constructor_and_display) ... ok
+test_encapsulation (test_product.ProductTests.test_encapsulation) ... ok
+test_invalid_constructor_data (test_product.ProductTests.test_invalid_constructor_data) ... ok
+test_invalid_update_leaves_state_unchanged (test_product.ProductTests.test_invalid_update_leaves_state_unchanged) ... ok
+test_update_replaces_stock_and_preserves_history (test_product.ProductTests.test_update_replaces_stock_and_preserves_history) ... ok
+test_add_and_search_products (test_inventory.InventoryTests.test_add_and_search_products) ... ok
+test_collection_cannot_be_changed_through_copy (test_inventory.InventoryTests.test_collection_cannot_be_changed_through_copy) ... ok
+test_dictionary_is_rejected (test_inventory.InventoryTests.test_dictionary_is_rejected) ... ok
+test_display_empty_and_populated_inventory (test_inventory.InventoryTests.test_display_empty_and_populated_inventory) ... ok
+test_duplicate_id_is_rejected (test_inventory.InventoryTests.test_duplicate_id_is_rejected) ... ok
+test_found_product_controls_its_own_stock (test_inventory.InventoryTests.test_found_product_controls_its_own_stock) ... ok
+test_all_menu_options_and_restart (test_inventory_manager.OOPSystemTests.test_all_menu_options_and_restart) ... ok
+test_existing_json_round_trip_preserves_data (test_inventory_manager.OOPSystemTests.test_existing_json_round_trip_preserves_data) ... ok
+test_invalid_saved_data_is_preserved (test_inventory_manager.OOPSystemTests.test_invalid_saved_data_is_preserved) ... ok
+test_invalid_user_numbers_are_retried (test_inventory_manager.OOPSystemTests.test_invalid_user_numbers_are_retried) ... ok
+test_legacy_product_without_history_loads (test_inventory_manager.OOPSystemTests.test_legacy_product_without_history_loads) ... ok
+test_load_failure_does_not_enter_menu_or_save (test_inventory_manager.OOPSystemTests.test_load_failure_does_not_enter_menu_or_save) ... ok
+test_missing_file_returns_empty_inventory (test_inventory_manager.OOPSystemTests.test_missing_file_returns_empty_inventory) ... ok
+test_save_failure_does_not_exit (test_inventory_manager.OOPSystemTests.test_save_failure_does_not_exit) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.097s
+
+OK
