@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="820" viewBox="0 0 1240 820">
+  <rect width="1240" height="820" fill="#f5f7fb"/>
+  <g font-family="Arial, sans-serif" fill="#17243a">
+    <text x="50" y="55" font-size="28" font-weight="bold">Inventory management: UML class diagram</text>
+    <text x="50" y="88" font-size="16">Week 8 / Lab 6 | Encapsulation and Single Responsibility Principle</text>
+    <rect x="50" y="130" width="500" height="575" rx="6" fill="white" stroke="#334b70" stroke-width="2"/>
+    <rect x="750" y="130" width="440" height="330" rx="6" fill="white" stroke="#334b70" stroke-width="2"/>
+    <text x="300" y="168" text-anchor="middle" font-size="23" font-weight="bold">Product</text>
+    <text x="970" y="168" text-anchor="middle" font-size="23" font-weight="bold">Inventory</text>
+    <path d="M50 190 H550 M50 350 H550 M750 190 H1190 M750 245 H1190" stroke="#334b70"/>
+    <g font-family="Consolas, monospace" font-size="16">
+      <text x="68" y="220">- __product_id: str</text>
+      <text x="68" y="248">- __name: str</text>
+      <text x="68" y="276">- __price: float</text>
+      <text x="68" y="304">- __stock: int</text>
+      <text x="68" y="332">- __transaction_history: list[int]</text>
+      <text x="68" y="380">+ __init__(product_id, name, price,</text>
+      <text x="88" y="405">stock, transaction_history=None)</text>
+      <text x="68" y="440">+ product_id: str {read-only}</text>
+      <text x="68" y="468">+ name: str {read-only}</text>
+      <text x="68" y="496">+ price: float {read-only}</text>
+      <text x="68" y="524">+ stock: int {read-only}</text>
+      <text x="68" y="552">+ transaction_history: list[int]</text>
+      <text x="88" y="575">{read-only, returns a copy}</text>
+      <text x="68" y="610"># _validate_stock(quantity): None</text>
+      <text x="88" y="633">{static helper}</text>
+      <text x="68" y="662">+ update_stock(quantity): None</text>
+      <text x="68" y="690">+ display_information(): None</text>
+      <text x="768" y="223">- __products: list[Product]</text>
+      <text x="768" y="278">+ __init__()</text>
+      <text x="768" y="311">+ add_product(product): None</text>
+      <text x="768" y="344">+ search_product(product_id):</text>
+      <text x="788" y="369">Product or None</text>
+      <text x="768" y="404">+ get_products(): list[Product]</text>
+      <text x="768" y="437">+ display_all(): None</text>
+    </g>
+    <path d="M550 290 H722 M722 290 L736 282 L750 290 L736 298 Z" fill="white" stroke="#334b70" stroke-width="2"/>
+    <text x="650" y="265" text-anchor="middle" font-size="15">stores</text>
+    <text x="560" y="317" font-size="14">0..*</text>
+    <text x="704" y="317" font-size="14">0..*</text>
+    <text x="750" y="510" font-size="16" font-weight="bold">Aggregation (hollow diamond)</text>
+    <text x="750" y="538" font-size="15">Inventory stores zero or more Product objects.</text>
+    <text x="750" y="564" font-size="15">A Product can exist independently and can</text>
+    <text x="750" y="590" font-size="15">be shared between Inventory instances.</text>
+    <text x="50" y="752" font-size="16">+ public   - private   # internal by convention</text>
+    <text x="50" y="782" font-size="16">Menu and JSON storage use functions; neither is an additional application class.</text>
+  </g>
+</svg>

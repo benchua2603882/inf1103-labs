@@ -1,2 +1,0 @@
-IMAGE                     ID             DISK USAGE   CONTENT SIZE   EXTRA
-inventory-manager:week8   d9746aa90325        187MB         45.6MB        
