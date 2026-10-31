@@ -6,6 +6,7 @@ class Product(ABC):
     """Represent one product and control changes to its stock."""
 
     def __init__(self, product_id, name, price, stock, transaction_history=None):
+        # Check the product details before storing them in private attributes.
         if not isinstance(product_id, str) or not product_id.strip():
             raise ValueError("Product ID cannot be empty.")
         if not isinstance(name, str) or not name.strip():
@@ -32,24 +33,29 @@ class Product(ABC):
 
     @staticmethod
     def _validate_stock(quantity):
+        # Reject negative quantities and values that are not whole numbers.
         if type(quantity) is not int or quantity < 0:
             raise ValueError("Stock must be a non-negative whole number.")
 
     # Read-only properties let other code read values without changing them.
     @property
     def product_id(self):
+        # Read the product's ID without allowing it to be reassigned.
         return self.__product_id
 
     @property
     def name(self):
+        # Read the product's name.
         return self.__name
 
     @property
     def price(self):
+        # Read the price of one unit.
         return self.__price
 
     @property
     def stock(self):
+        # Read the current quantity; use update_stock() to change it.
         return self.__stock
 
     @property
@@ -69,6 +75,7 @@ class Product(ABC):
         pass
 
     def display_information(self):
+        # Print the common details shared by all product types.
         print(
             f"ID: {self.__product_id} | Name: {self.__name} | "
             f"Price: ${self.__price:.2f} | Stock: {self.__stock}"

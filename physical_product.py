@@ -9,6 +9,7 @@ class PhysicalProduct(Product, CanBeShipped):
     """A product with a physical weight in kilograms."""
 
     def __init__(self, product_id, name, price, stock, weight, transaction_history=None):
+        # Set up the shared product details, then check and store its weight.
         super().__init__(product_id, name, price, stock, transaction_history)
         if type(weight) not in (int, float) or not math.isfinite(weight) or weight < 0:
             raise ValueError("Weight must be a finite, non-negative number.")
@@ -16,9 +17,11 @@ class PhysicalProduct(Product, CanBeShipped):
 
     @property
     def weight(self):
+        # Read the weight in kilograms.
         return self.__weight
 
     def get_fulfilment_info(self):
+        # Describe how a physical product reaches the customer.
         return "This product requires physical shipping."
 
     def calculate_shipping_cost(self):

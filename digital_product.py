@@ -7,6 +7,7 @@ class DigitalProduct(Product):
     """A downloadable product with its size measured in megabytes."""
 
     def __init__(self, product_id, name, price, stock, download_size, transaction_history=None):
+        # Set up the shared product details, then check and store its download size.
         super().__init__(product_id, name, price, stock, transaction_history)
         if (
             type(download_size) not in (int, float)
@@ -18,9 +19,11 @@ class DigitalProduct(Product):
 
     @property
     def download_size(self):
+        # Read the download size in megabytes.
         return self.__download_size
 
     def get_fulfilment_info(self):
+        # Describe how a digital product reaches the customer.
         return "This product is delivered digitally by download."
 
     def display_information(self):

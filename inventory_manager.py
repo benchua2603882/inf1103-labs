@@ -6,7 +6,7 @@ from digital_product import DigitalProduct
 
 
 def get_valid_input(prompt, whole_number=True):
-    # Reuse the earlier auditor's retry loop for stock quantities and prices.
+    # Keep asking until a valid non-negative number is entered.
     while True:
         value = input(prompt).strip()
         try:
@@ -24,6 +24,7 @@ def get_valid_input(prompt, whole_number=True):
 
 
 def add_product(inventory):
+    # Collect the chosen product type and its details, then add the new object.
     print("\nAdd New Product")
     print("1. Physical Product")
     print("2. Digital Product")
@@ -56,6 +57,7 @@ def add_product(inventory):
 
 
 def update_stock(inventory):
+    # Find the product and ask it to update its stock with the user's new quantity.
     print("\nUpdate Stock")
     product = inventory.search_product(input("Enter Product ID: "))
     if product is None:
@@ -68,6 +70,7 @@ def update_stock(inventory):
 
 
 def main():
+    # Load saved products, run the menu, and save the inventory before exiting.
     print("=" * 40)
     print("INVENTORY MANAGEMENT SYSTEM")
     print("=" * 40)
