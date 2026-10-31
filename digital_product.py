@@ -20,7 +20,11 @@ class DigitalProduct(Product):
     def download_size(self):
         return self.__download_size
 
+    def get_fulfilment_info(self):
+        return "This product is delivered digitally by download."
+
     def display_information(self):
         # Reuse the common product display and add only digital details.
         super().display_information()
         print(f"Download size: {self.__download_size:g} MB")
+        print(self.get_fulfilment_info())

@@ -1,7 +1,8 @@
 import math
+from abc import ABC, abstractmethod
 
 
-class Product:
+class Product(ABC):
     """Represent one product and control changes to its stock."""
 
     def __init__(self, product_id, name, price, stock, transaction_history=None):
@@ -61,6 +62,11 @@ class Product:
         self._validate_stock(quantity)
         self.__transaction_history.append(quantity - self.__stock)
         self.__stock = quantity
+
+    @abstractmethod
+    def get_fulfilment_info(self):
+        """Subclasses must describe how the product reaches the customer."""
+        pass
 
     def display_information(self):
         print(
