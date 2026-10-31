@@ -1,0 +1,20 @@
+[
+    {
+        "id": "DEMO-P001",
+        "name": "Sample Laptop",
+        "price": 1200.0,
+        "stock": 15,
+        "transaction_history": [15],
+        "type": "physical",
+        "weight": 1.5
+    },
+    {
+        "id": "DEMO-D001",
+        "name": "Sample E-book",
+        "price": 12.5,
+        "stock": 20,
+        "transaction_history": [20],
+        "type": "digital",
+        "download_size": 8.25
+    }
+]

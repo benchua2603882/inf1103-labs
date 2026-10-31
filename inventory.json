@@ -6,7 +6,9 @@
         "stock": 4,
         "transaction_history": [
             4
-        ]
+        ],
+        "type": "physical",
+        "weight": 1.5
     },
     {
         "id": "HEADPHONE",
@@ -15,7 +17,9 @@
         "stock": 2,
         "transaction_history": [
             2
-        ]
+        ],
+        "type": "physical",
+        "weight": 0.3
     },
     {
         "id": "003",
@@ -25,7 +29,9 @@
         "transaction_history": [
             4,
             3
-        ]
+        ],
+        "type": "physical",
+        "weight": 8.0
     },
     {
         "id": "004",
@@ -34,6 +40,8 @@
         "stock": 6,
         "transaction_history": [
             6
-        ]
+        ],
+        "type": "physical",
+        "weight": 2.0
     }
 ]

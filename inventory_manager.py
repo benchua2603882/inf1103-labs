@@ -1,7 +1,8 @@
 import math
 
 from inventory_storage import load_inventory, save_inventory
-from product import Product
+from physical_product import PhysicalProduct
+from digital_product import DigitalProduct
 
 
 def get_valid_input(prompt, whole_number=True):
@@ -16,14 +17,21 @@ def get_valid_input(prompt, whole_number=True):
             number = float(value)
             if not math.isfinite(number) or number < 0:
                 raise ValueError
-            return round(number, 2)
+            return number
         except ValueError:
-            kind = "whole number" if whole_number else "price"
+            kind = "whole number" if whole_number else "number"
             print(f"Error: Enter a non-negative {kind}.")
 
 
 def add_product(inventory):
     print("\nAdd New Product")
+    print("1. Physical Product")
+    print("2. Digital Product")
+    while True:
+        product_type = input("Choose product type (1 or 2): ").strip()
+        if product_type in ("1", "2"):
+            break
+        print("Invalid product type. Please choose 1 or 2.")
     product_id = input("Product ID: ").strip().upper()
     if not product_id:
         print("Error: Product ID cannot be empty.")
@@ -35,9 +43,14 @@ def add_product(inventory):
     if not name:
         print("Error: Product name cannot be empty.")
         return
-    price = get_valid_input("Price: ", whole_number=False)
+    price = round(get_valid_input("Price: ", whole_number=False), 2)
     stock = get_valid_input("Stock Quantity: ")
-    product = Product(product_id, name, price, stock)
+    if product_type == "1":
+        weight = get_valid_input("Weight (kg): ", whole_number=False)
+        product = PhysicalProduct(product_id, name, price, stock, weight)
+    else:
+        download_size = get_valid_input("Download size (MB): ", whole_number=False)
+        product = DigitalProduct(product_id, name, price, stock, download_size)
     inventory.add_product(product)
     print("Product added successfully!")
 
