@@ -7,9 +7,22 @@ __pycache__/
 .lab5-test-data/
 2603882_Week_5_lab.zip
 week5_docker_images.txt
-.gitignore
 week5_docker_run.txt
 WEEK5_README.md
 week5_docker_reload.txt
 UML diagram.svg
 Week8_Lab6_draft.zip
+
+# Python bytecode and virtual environments
+*.py[cod]
+.venv/
+venv/
+
+# Local settings and environment variables
+.env
+.vscode/
+.idea/
+
+# Generated Week 9 submission artifacts
+Week9_Lab7_draft.zip
+Week9_log.txt
