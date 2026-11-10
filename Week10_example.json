@@ -1,0 +1,41 @@
+[
+    {
+        "id": "P001",
+        "name": "Demo Laptop",
+        "price": 100.0,
+        "stock": 12,
+        "transaction_history": [
+            10,
+            6,
+            -16,
+            5,
+            7
+        ],
+        "supplier": {
+            "id": "S001",
+            "name": "Demo Supplier",
+            "contact_email": "demo@example.com"
+        },
+        "type": "physical",
+        "weight": 1.5
+    },
+    {
+        "id": "D001",
+        "name": "Demo E-book",
+        "price": 12.5,
+        "stock": 12,
+        "transaction_history": [
+            20,
+            -20,
+            5,
+            7
+        ],
+        "supplier": {
+            "id": "S001",
+            "name": "Demo Supplier",
+            "contact_email": "demo@example.com"
+        },
+        "type": "digital",
+        "download_size": 8.25
+    }
+]
