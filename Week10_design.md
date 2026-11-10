@@ -82,8 +82,12 @@ line were also reclaimed in a weak-reference check. Python can keep an object
 alive if external references exist; composition here describes intended ownership,
 not a guarantee that `del` destroys all references everywhere.
 
-Section 7 is still to be checked. The final Word notes will include all four
-predictions, observed results and any differences after implementation.
+Section 7 matched the prediction. The common Product loop returned exactly
+`This product requires physical shipping.` for the physical product and
+`This product is delivered digitally by download.` for the digital product.
+The same show_product_details(product: Product) function worked for both without
+subclass checks. No correction was needed. All four observations are now ready
+to put into the final Word notes.
 The optional Section 10 reflection will not be included.
 
 ## Persistence and interface decisions
@@ -115,3 +119,33 @@ Orders are held in memory for the current run, use unique IDs within that run,
 and do not reserve or deduct stock. Saving inventory still saves only products
 and supplier details. The menu states these limits. Order persistence and checkout
 are outside the required relationship exercise.
+
+## Type hints and LSP checks
+
+All 56 functions and methods across the ten application modules now have return
+annotations and annotations for parameters other than self. Product's stored
+attributes, Supplier references, subclass measurements and object collections
+also have explicit types. An AST audit checked annotation presence; this was not
+a full static type-checker run. Type hints do not enforce runtime values.
+
+Product promises that update_stock accepts non-negative integer totals, replaces
+the current stock, records the difference and returns None. Both subclasses use
+the inherited implementation. Direct checks with 0, 5 and 12 passed for both.
+Negative, fractional and Boolean quantities were rejected without changing state.
+Both objects also worked in the same Inventory and through the same typed helper.
+
+### Required LSP diagnosis
+
+The proposed DigitalProduct method that always raises NotImplementedError violates
+LSP because code using Product expects update_stock to work for a valid quantity.
+For this system, I would remove that override and keep the shared Product stock
+behaviour, treating digital stock as available copies or licences. If digital
+products truly must not have stock, the design should separate stock management
+from Product rather than adding special cases to Inventory.
+
+### Polymorphism explanation
+
+show_product_details accepts Product and calls the same methods on either object.
+Python selects each object's display and fulfilment implementation, which is
+polymorphism. LSP supports this because both subclasses honour the Product
+interface and its expected behaviour, so the caller does not need special cases.

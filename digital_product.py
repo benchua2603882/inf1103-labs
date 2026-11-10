@@ -18,18 +18,18 @@ class DigitalProduct(Product):
             or download_size < 0
         ):
             raise ValueError("Download size must be a finite, non-negative number.")
-        self.__download_size = float(download_size)
+        self.__download_size: float = float(download_size)
 
     @property
-    def download_size(self):
+    def download_size(self) -> float:
         # Read the download size in megabytes.
         return self.__download_size
 
-    def get_fulfilment_info(self):
+    def get_fulfilment_info(self) -> str:
         # Describe how a digital product reaches the customer.
         return "This product is delivered digitally by download."
 
-    def display_information(self):
+    def display_information(self) -> None:
         # Reuse the common product display and add only digital details.
         super().display_information()
         print(f"Download size: {self.__download_size:g} MB")

@@ -10,7 +10,7 @@ from supplier import Supplier
 INVENTORY_FILE = Path(__file__).with_name("inventory.json")
 
 
-def load_inventory(filename=INVENTORY_FILE):
+def load_inventory(filename: str | Path = INVENTORY_FILE) -> Inventory:
     # Read JSON and rebuild the correct product objects; start empty if no file exists.
     inventory = Inventory()
     try:
@@ -68,7 +68,7 @@ def load_inventory(filename=INVENTORY_FILE):
     return inventory
 
 
-def save_inventory(inventory, filename=INVENTORY_FILE):
+def save_inventory(inventory: Inventory, filename: str | Path = INVENTORY_FILE) -> None:
     # Save each product's type and details so loading can restore the same kind of object.
     # Use public properties; private product attributes stay inside Product.
     data = []

@@ -31,14 +31,14 @@ class Product(ABC):
         if sum(transaction_history) != stock:
             raise ValueError("Transaction history must match current stock.")
 
-        self.__product_id = product_id.strip().upper()
-        self.__name = name.strip()
-        self.__price = float(price)
-        self.__stock = stock
-        self.__transaction_history = transaction_history.copy()
+        self.__product_id: str = product_id.strip().upper()
+        self.__name: str = name.strip()
+        self.__price: float = float(price)
+        self.__stock: int = stock
+        self.__transaction_history: list[int] = transaction_history.copy()
 
     @staticmethod
-    def _validate_stock(quantity):
+    def _validate_stock(quantity: int) -> None:
         # Reject negative quantities and values that are not whole numbers.
         if type(quantity) is not int or quantity < 0:
             raise ValueError("Stock must be a non-negative whole number.")
@@ -50,42 +50,42 @@ class Product(ABC):
 
     # Read-only properties let other code read values without changing them.
     @property
-    def product_id(self):
+    def product_id(self) -> str:
         # Read the product's ID without allowing it to be reassigned.
         return self.__product_id
 
     @property
-    def name(self):
+    def name(self) -> str:
         # Read the product's name.
         return self.__name
 
     @property
-    def price(self):
+    def price(self) -> float:
         # Read the price of one unit.
         return self.__price
 
     @property
-    def stock(self):
+    def stock(self) -> int:
         # Read the current quantity; use update_stock() to change it.
         return self.__stock
 
     @property
-    def transaction_history(self):
+    def transaction_history(self) -> list[int]:
         # Return a copy so callers cannot change the product's internal history.
         return self.__transaction_history.copy()
 
-    def update_stock(self, quantity):
+    def update_stock(self, quantity: int) -> None:
         """Replace the stock total and record the quantity change."""
         self._validate_stock(quantity)
         self.__transaction_history.append(quantity - self.__stock)
         self.__stock = quantity
 
     @abstractmethod
-    def get_fulfilment_info(self):
+    def get_fulfilment_info(self) -> str:
         """Subclasses must describe how the product reaches the customer."""
         pass
 
-    def display_information(self):
+    def display_information(self) -> None:
         # Print the common details shared by all product types.
         print(
             f"ID: {self.__product_id} | Name: {self.__name} | "

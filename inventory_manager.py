@@ -6,6 +6,13 @@ from digital_product import DigitalProduct
 from supplier import Supplier
 from inventory import Inventory
 from order import Order
+from product import Product
+
+
+def show_product_details(product: Product) -> None:
+    # Use the same calls for any Product, without checking its subclass.
+    product.display_information()
+    print(product.get_fulfilment_info())
 
 
 def create_order(inventory: Inventory, orders: dict[str, Order]) -> None:
@@ -24,7 +31,7 @@ def create_order(inventory: Inventory, orders: dict[str, Order]) -> None:
         if product is None:
             print("Product not found.")
             continue
-        quantity = get_valid_input("Order quantity: ")
+        quantity = int(get_valid_input("Order quantity: "))
         try:
             order.add_order_line(product, quantity)
             print("Order line added.")
@@ -47,7 +54,7 @@ def remove_order_line(orders: dict[str, Order]) -> None:
         print("Order not found.")
         return
     order.display_information()
-    line_number = get_valid_input("Line number to remove: ")
+    line_number = int(get_valid_input("Line number to remove: "))
     try:
         order.remove_order_line(line_number)
         print("Order line removed.")
@@ -74,7 +81,7 @@ def get_supplier(inventory: Inventory) -> Supplier:
             print(error)
 
 
-def get_valid_input(prompt, whole_number=True):
+def get_valid_input(prompt: str, whole_number: bool = True) -> int | float:
     # Keep asking until a valid non-negative number is entered.
     while True:
         value = input(prompt).strip()
@@ -92,7 +99,7 @@ def get_valid_input(prompt, whole_number=True):
             print(f"Error: Enter a non-negative {kind}.")
 
 
-def add_product(inventory):
+def add_product(inventory: Inventory) -> None:
     # Collect the chosen product type and its details, then add the new object.
     print("\nAdd New Product")
     print("1. Physical Product")
@@ -114,7 +121,7 @@ def add_product(inventory):
         print("Error: Product name cannot be empty.")
         return
     price = round(get_valid_input("Price: ", whole_number=False), 2)
-    stock = get_valid_input("Stock Quantity: ")
+    stock = int(get_valid_input("Stock Quantity: "))
     supplier = get_supplier(inventory)
     if product_type == "1":
         weight = get_valid_input("Weight (kg): ", whole_number=False)
@@ -126,7 +133,7 @@ def add_product(inventory):
     print("Product added successfully!")
 
 
-def update_stock(inventory):
+def update_stock(inventory: Inventory) -> None:
     # Find the product and ask it to update its stock with the user's new quantity.
     print("\nUpdate Stock")
     product = inventory.search_product(input("Enter Product ID: "))
@@ -134,12 +141,12 @@ def update_stock(inventory):
         print("Product not found.")
         return
     print(f"Name: {product.name}\nCurrent Stock: {product.stock}")
-    new_stock = get_valid_input("New Stock Quantity: ")
+    new_stock = int(get_valid_input("New Stock Quantity: "))
     product.update_stock(new_stock)
     print("Stock updated successfully!")
 
 
-def main():
+def main() -> None:
     # Load saved products, run the menu, and save the inventory before exiting.
     print("=" * 40)
     print("INVENTORY MANAGEMENT SYSTEM")
