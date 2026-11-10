@@ -5,6 +5,54 @@ from physical_product import PhysicalProduct
 from digital_product import DigitalProduct
 from supplier import Supplier
 from inventory import Inventory
+from order import Order
+
+
+def create_order(inventory: Inventory, orders: dict[str, Order]) -> None:
+    # Orders are kept for this run; inventory saving still only saves products.
+    order_id = input("Order ID: ").strip().upper()
+    if not order_id or order_id in orders:
+        print("Please enter a new, non-empty order ID.")
+        return
+    order = Order(order_id)
+    orders[order_id] = order
+    while True:
+        product_id = input("Product ID (or 'done' to finish): ").strip()
+        if product_id.lower() == "done":
+            break
+        product = inventory.find_product(product_id)
+        if product is None:
+            print("Product not found.")
+            continue
+        quantity = get_valid_input("Order quantity: ")
+        try:
+            order.add_order_line(product, quantity)
+            print("Order line added.")
+        except ValueError as error:
+            print(error)
+    order.display_information()
+
+
+def display_orders(orders: dict[str, Order]) -> None:
+    # Each order is responsible for displaying its own lines and total.
+    if not orders:
+        print("No orders in this session.")
+    for order in orders.values():
+        order.display_information()
+
+
+def remove_order_line(orders: dict[str, Order]) -> None:
+    order = orders.get(input("Order ID: ").strip().upper())
+    if order is None:
+        print("Order not found.")
+        return
+    order.display_information()
+    line_number = get_valid_input("Line number to remove: ")
+    try:
+        order.remove_order_line(line_number)
+        print("Order line removed.")
+    except ValueError as error:
+        print(error)
 
 
 def get_supplier(inventory: Inventory) -> Supplier:
@@ -103,6 +151,8 @@ def main():
         print("Please fix the saved file before restarting.")
         return
 
+    orders: dict[str, Order] = {}
+    print("Orders last for this session only and do not change stock.")
     while True:
         print("\n----------- MENU -----------")
         print("1. Display All Products")
@@ -111,6 +161,9 @@ def main():
         print("4. Search Product")
         print("5. Save Inventory")
         print("6. Exit")
+        print("7. Create Order")
+        print("8. Display Orders")
+        print("9. Remove Order Line")
         print("----------------------------")
         option = input("Enter option: ").strip()
 
@@ -138,8 +191,14 @@ def main():
             if option == "6":
                 print("Thank you for using Inventory Management System.")
                 break
+        elif option == "7":
+            create_order(inventory, orders)
+        elif option == "8":
+            display_orders(orders)
+        elif option == "9":
+            remove_order_line(orders)
         else:
-            print("Invalid option. Please choose 1 to 6.")
+            print("Invalid option. Please choose 1 to 9.")
 
 
 if __name__ == "__main__":

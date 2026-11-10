@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY inventory_manager.py inventory_storage.py inventory.py product.py ./
 COPY physical_product.py digital_product.py can_be_shipped.py ./
-COPY supplier.py ./
+COPY supplier.py order.py order_line.py ./
 
 CMD ["python", "inventory_manager.py"]
 

@@ -70,8 +70,20 @@ Section 3 matched the prediction. Removing P001 from Inventory A returned the
 same object. Its stock was updated from 15 to 16 outside the inventory, and
 Inventory B then found that exact same object using `is`. No correction was needed.
 
-Sections 4 and 7 are still to be checked. The final Word notes will include all
-four predictions, observed results and any differences after implementation.
+Section 4 matched the prediction. Adding the same physical product to two orders
+created different lines (`is` was false), but both lines' product references
+pointed to the same Product (`is` was true). No correction was needed. Adding a
+second product at $12.50 with quantity 3 to an order containing two $100 products
+gave a total of $237.50. Removing the first line left $37.50 and did not change
+the Product or the other Order.
+
+With no other strong references retained, a removed line and a deleted order's
+line were also reclaimed in a weak-reference check. Python can keep an object
+alive if external references exist; composition here describes intended ownership,
+not a guarantee that `del` destroys all references everywhere.
+
+Section 7 is still to be checked. The final Word notes will include all four
+predictions, observed results and any differences after implementation.
 The optional Section 10 reflection will not be included.
 
 ## Persistence and interface decisions
@@ -88,3 +100,18 @@ remove_product(product_id: str), get_products() and display_all() methods.
 Both find and remove return Product or None. Returning the removed reference
 allows a caller to add the same product to another inventory. search_product()
 remains an alias so the earlier menu continues working.
+
+## Order design
+
+OrderLine has read-only product: Product and quantity: Integer properties and
+calculate_subtotal(): Real. Order owns a private collection of OrderLine objects,
+creates them in add_order_line(product: Product, quantity: Integer): void, and
+removes them by one-based line number. calculate_total(): Real asks each line for
+its subtotal. get_order_lines() returns a list copy for reading; no method accepts
+an existing OrderLine for insertion or transfer. Public properties cannot be
+reassigned, so each line keeps its product and quantity.
+
+Orders are held in memory for the current run, use unique IDs within that run,
+and do not reserve or deduct stock. Saving inventory still saves only products
+and supplier details. The menu states these limits. Order persistence and checkout
+are outside the required relationship exercise.
