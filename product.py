@@ -1,11 +1,13 @@
 import math
 from abc import ABC, abstractmethod
+from supplier import Supplier
 
 
 class Product(ABC):
     """Represent one product and control changes to its stock."""
 
-    def __init__(self, product_id, name, price, stock, transaction_history=None):
+    def __init__(self, product_id: str, name: str, price: float, stock: int,
+                 supplier: Supplier, transaction_history: list[int] | None = None) -> None:
         # Check the product details before storing them in private attributes.
         if not isinstance(product_id, str) or not product_id.strip():
             raise ValueError("Product ID cannot be empty.")
@@ -14,6 +16,10 @@ class Product(ABC):
         if type(price) not in (int, float) or not math.isfinite(price) or price < 0:
             raise ValueError("Price must be a finite, non-negative number.")
         self._validate_stock(stock)
+        if not isinstance(supplier, Supplier):
+            raise TypeError("Supplier must be a Supplier object.")
+        # Keep the same supplier object instead of making a copy.
+        self.__supplier: Supplier = supplier
 
         # Keep the Week 5 quantity history when restoring an existing product.
         if transaction_history is None:
@@ -36,6 +42,11 @@ class Product(ABC):
         # Reject negative quantities and values that are not whole numbers.
         if type(quantity) is not int or quantity < 0:
             raise ValueError("Stock must be a non-negative whole number.")
+
+    @property
+    def supplier(self) -> Supplier:
+        # The supplier exists separately from this product.
+        return self.__supplier
 
     # Read-only properties let other code read values without changing them.
     @property
@@ -80,3 +91,4 @@ class Product(ABC):
             f"ID: {self.__product_id} | Name: {self.__name} | "
             f"Price: ${self.__price:.2f} | Stock: {self.__stock}"
         )
+        self.__supplier.display_information()

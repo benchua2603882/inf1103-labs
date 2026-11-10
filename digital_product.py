@@ -1,14 +1,17 @@
 import math
 
 from product import Product
+from supplier import Supplier
 
 
 class DigitalProduct(Product):
     """A downloadable product with its size measured in megabytes."""
 
-    def __init__(self, product_id, name, price, stock, download_size, transaction_history=None):
+    def __init__(self, product_id: str, name: str, price: float, stock: int,
+                 download_size: float, supplier: Supplier,
+                 transaction_history: list[int] | None = None) -> None:
         # Set up the shared product details, then check and store its download size.
-        super().__init__(product_id, name, price, stock, transaction_history)
+        super().__init__(product_id, name, price, stock, supplier, transaction_history)
         if (
             type(download_size) not in (int, float)
             or not math.isfinite(download_size)

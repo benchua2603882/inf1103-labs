@@ -3,6 +3,27 @@ import math
 from inventory_storage import load_inventory, save_inventory
 from physical_product import PhysicalProduct
 from digital_product import DigitalProduct
+from supplier import Supplier
+from inventory import Inventory
+
+
+def get_supplier(inventory: Inventory) -> Supplier:
+    # Reuse an existing supplier, or ask for the details of a new one.
+    while True:
+        supplier_id = input("Supplier ID: ").strip().upper()
+        if not supplier_id:
+            print("Supplier ID cannot be empty.")
+            continue
+        for product in inventory.get_products():
+            if product.supplier.supplier_id == supplier_id:
+                print(f"Using supplier: {product.supplier.name}")
+                return product.supplier
+        name = input("Supplier name: ").strip()
+        email = input("Supplier email: ").strip()
+        try:
+            return Supplier(supplier_id, name, email)
+        except ValueError as error:
+            print(error)
 
 
 def get_valid_input(prompt, whole_number=True):
@@ -46,12 +67,13 @@ def add_product(inventory):
         return
     price = round(get_valid_input("Price: ", whole_number=False), 2)
     stock = get_valid_input("Stock Quantity: ")
+    supplier = get_supplier(inventory)
     if product_type == "1":
         weight = get_valid_input("Weight (kg): ", whole_number=False)
-        product = PhysicalProduct(product_id, name, price, stock, weight)
+        product = PhysicalProduct(product_id, name, price, stock, weight, supplier)
     else:
         download_size = get_valid_input("Download size (MB): ", whole_number=False)
-        product = DigitalProduct(product_id, name, price, stock, download_size)
+        product = DigitalProduct(product_id, name, price, stock, download_size, supplier)
     inventory.add_product(product)
     print("Product added successfully!")
 

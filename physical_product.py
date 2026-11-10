@@ -1,6 +1,7 @@
 import math
 
 from product import Product
+from supplier import Supplier
 from can_be_shipped import CanBeShipped
 
 
@@ -8,9 +9,11 @@ from can_be_shipped import CanBeShipped
 class PhysicalProduct(Product, CanBeShipped):
     """A product with a physical weight in kilograms."""
 
-    def __init__(self, product_id, name, price, stock, weight, transaction_history=None):
+    def __init__(self, product_id: str, name: str, price: float, stock: int,
+                 weight: float, supplier: Supplier,
+                 transaction_history: list[int] | None = None) -> None:
         # Set up the shared product details, then check and store its weight.
-        super().__init__(product_id, name, price, stock, transaction_history)
+        super().__init__(product_id, name, price, stock, supplier, transaction_history)
         if type(weight) not in (int, float) or not math.isfinite(weight) or weight < 0:
             raise ValueError("Weight must be a finite, non-negative number.")
         self.__weight = float(weight)

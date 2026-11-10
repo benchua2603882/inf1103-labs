@@ -4,6 +4,7 @@ from pathlib import Path
 from inventory import Inventory
 from physical_product import PhysicalProduct
 from digital_product import DigitalProduct
+from supplier import Supplier
 
 
 INVENTORY_FILE = Path(__file__).with_name("inventory.json")
@@ -22,9 +23,25 @@ def load_inventory(filename=INVENTORY_FILE):
     # Dictionaries are only used at the JSON boundary, not as live products.
     if not isinstance(data, list):
         raise ValueError("Saved inventory must be a list of products.")
+    suppliers: dict[str, Supplier] = {}
     for item in data:
         if not isinstance(item, dict):
             raise ValueError("Each saved product must be a JSON object.")
+        # Older records have no supplier details, so label them as not recorded.
+        supplier_data = item.get("supplier", {
+            "id": "UNASSIGNED", "name": "Supplier not recorded", "contact_email": "Not provided",
+        })
+        if not isinstance(supplier_data, dict):
+            raise ValueError("Saved supplier details must be a JSON object.")
+        supplier = Supplier(supplier_data.get("id"), supplier_data.get("name"),
+                            supplier_data.get("contact_email"))
+        if supplier.supplier_id in suppliers:
+            existing = suppliers[supplier.supplier_id]
+            if existing.name != supplier.name or existing.contact_email != supplier.contact_email:
+                raise ValueError("The same supplier ID has conflicting details.")
+            supplier = existing
+        else:
+            suppliers[supplier.supplier_id] = supplier
         history = item.get("transaction_history", [item.get("stock")])
         if not isinstance(history, list):
             raise ValueError("Saved transaction history must be a list.")
@@ -32,12 +49,12 @@ def load_inventory(filename=INVENTORY_FILE):
         if product_type == "physical":
             product = PhysicalProduct(
                 item.get("id"), item.get("name"), item.get("price"),
-                item.get("stock"), item.get("weight"), history,
+                item.get("stock"), item.get("weight"), supplier, history,
             )
         elif product_type == "digital":
             product = DigitalProduct(
                 item.get("id"), item.get("name"), item.get("price"),
-                item.get("stock"), item.get("download_size"), history,
+                item.get("stock"), item.get("download_size"), supplier, history,
             )
         else:
             raise ValueError(
@@ -62,6 +79,11 @@ def save_inventory(inventory, filename=INVENTORY_FILE):
             "price": product.price,
             "stock": product.stock,
             "transaction_history": product.transaction_history,
+            "supplier": {
+                "id": product.supplier.supplier_id,
+                "name": product.supplier.name,
+                "contact_email": product.supplier.contact_email,
+            },
         }
         if isinstance(product, PhysicalProduct):
             item["type"] = "physical"
