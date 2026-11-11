@@ -48,7 +48,7 @@ were performed, not a full static type-checker run.
 `Week10_Predict_First_Notes.docx` contains the four predictions, actual results,
 comparisons, required LSP diagnosis and UML review. The optional reflection task
 is omitted. Review these drafted answers in your own words before submission.
-`Week10_UML.svg` is the overview, and `Week10_UML.md` contains full typed interfaces.
+`Week10_UML.svg` contains the coloured UML class overview and relationship legend.
 `Week10_design.md` records the decisions and staged observations.
 
 ## Verification completed

@@ -2,17 +2,17 @@
 <defs><marker id="tri" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M1 1 L12 7 L1 13 Z" fill="white" stroke="#334b70" stroke-width="1.5"/></marker></defs>
 <rect width="2000" height="1600" fill="#f5f7fb"/>
 <g font-family="Arial,sans-serif" fill="#17243a">
-<text x="40" y="55" font-size="36" font-weight="bold">Week 10 object relationships</text>
-<text x="40" y="95" font-size="21" font-weight="normal">Typed class overview   Full signatures and constructors are listed in Week10_UML.md</text>
-<rect x="40" y="150" width="450" height="206" rx="5" fill="white" stroke="#334b70" stroke-width="2"/>
-<text x="58" y="185" font-size="24" font-weight="bold">Supplier</text>
+<rect x="40" y="150" width="450" height="206" rx="5" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+<path d="M45 150 H485 Q490 150 490 155 V202 H40 V155 Q40 150 45 150 Z" fill="#047857"/>
+<text x="58" y="185" font-size="24" font-weight="bold" fill="#ffffff">Supplier</text>
 <path d="M40 202 H490" stroke="#334b70"/>
 <text x="58" y="232" font-size="20" font-weight="normal">- supplier_id: String</text>
 <text x="58" y="266" font-size="20" font-weight="normal">- name: String</text>
 <text x="58" y="300" font-size="20" font-weight="normal">- contact_email: String</text>
 <text x="58" y="334" font-size="20" font-weight="normal">+ display_information(): void</text>
-<rect x="650" y="150" width="650" height="342" rx="5" fill="white" stroke="#334b70" stroke-width="2"/>
-<text x="668" y="185" font-size="24" font-weight="bold">Product &lt;&lt;abstract&gt;&gt;</text>
+<rect x="650" y="150" width="650" height="342" rx="5" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+<path d="M655 150 H1295 Q1300 150 1300 155 V202 H650 V155 Q650 150 655 150 Z" fill="#1d4ed8"/>
+<text x="668" y="185" font-size="24" font-weight="bold" fill="#ffffff">Product &lt;&lt;abstract&gt;&gt;</text>
 <path d="M650 202 H1300" stroke="#334b70"/>
 <text x="668" y="232" font-size="20" font-weight="normal">- product_id: String; name: String</text>
 <text x="668" y="266" font-size="20" font-weight="normal">- price: Real; stock: Integer</text>
@@ -22,8 +22,9 @@
 <text x="668" y="402" font-size="20" font-weight="normal">+ update_stock(quantity: Integer): void</text>
 <text x="668" y="436" font-size="20" font-weight="normal">+ display_information(): void</text>
 <text x="668" y="470" font-size="20" font-weight="normal">+ get_fulfilment_info(): String {abstract}</text>
-<rect x="1500" y="150" width="450" height="274" rx="5" fill="white" stroke="#334b70" stroke-width="2"/>
-<text x="1518" y="185" font-size="24" font-weight="bold">Inventory</text>
+<rect x="1500" y="150" width="450" height="274" rx="5" fill="#f0fdfa" stroke="#0f766e" stroke-width="2"/>
+<path d="M1505 150 H1945 Q1950 150 1950 155 V202 H1500 V155 Q1500 150 1505 150 Z" fill="#0f766e"/>
+<text x="1518" y="185" font-size="24" font-weight="bold" fill="#ffffff">Inventory</text>
 <path d="M1500 202 H1950" stroke="#334b70"/>
 <text x="1518" y="232" font-size="20" font-weight="normal">- products: Product [0..*]</text>
 <text x="1518" y="266" font-size="20" font-weight="normal">+ add_product(Product): void</text>
@@ -31,28 +32,32 @@
 <text x="1518" y="334" font-size="20" font-weight="normal">+ remove_product(String): Product or None</text>
 <text x="1518" y="368" font-size="20" font-weight="normal">+ get_products(): Product [0..*]</text>
 <text x="1518" y="402" font-size="20" font-weight="normal">+ display_all(): void</text>
-<rect x="40" y="450" width="450" height="138" rx="5" fill="white" stroke="#334b70" stroke-width="2"/>
-<text x="58" y="485" font-size="24" font-weight="bold">CanBeShipped &lt;&lt;interface&gt;&gt;</text>
+<rect x="40" y="450" width="450" height="138" rx="5" fill="#f5f3ff" stroke="#6d28d9" stroke-width="2"/>
+<path d="M45 450 H485 Q490 450 490 455 V502 H40 V455 Q40 450 45 450 Z" fill="#6d28d9"/>
+<text x="58" y="485" font-size="24" font-weight="bold" fill="#ffffff">CanBeShipped &lt;&lt;interface&gt;&gt;</text>
 <path d="M40 502 H490" stroke="#334b70"/>
 <text x="58" y="532" font-size="20" font-weight="normal">+ calculate_shipping_cost(): Real</text>
 <text x="58" y="566" font-size="20" font-weight="normal">  {abstract}</text>
-<rect x="40" y="800" width="550" height="240" rx="5" fill="white" stroke="#334b70" stroke-width="2"/>
-<text x="58" y="835" font-size="24" font-weight="bold">PhysicalProduct</text>
+<rect x="40" y="800" width="550" height="240" rx="5" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+<path d="M45 800 H585 Q590 800 590 805 V852 H40 V805 Q40 800 45 800 Z" fill="#c2410c"/>
+<text x="58" y="835" font-size="24" font-weight="bold" fill="#ffffff">PhysicalProduct</text>
 <path d="M40 852 H590" stroke="#334b70"/>
 <text x="58" y="882" font-size="20" font-weight="normal">- weight: Real</text>
 <text x="58" y="916" font-size="20" font-weight="normal">+ weight: Real {read-only}</text>
 <text x="58" y="950" font-size="20" font-weight="normal">+ display_information(): void</text>
 <text x="58" y="984" font-size="20" font-weight="normal">+ get_fulfilment_info(): String</text>
 <text x="58" y="1018" font-size="20" font-weight="normal">+ calculate_shipping_cost(): Real</text>
-<rect x="650" y="800" width="550" height="206" rx="5" fill="white" stroke="#334b70" stroke-width="2"/>
-<text x="668" y="835" font-size="24" font-weight="bold">DigitalProduct</text>
+<rect x="650" y="800" width="550" height="206" rx="5" fill="#fdf2f8" stroke="#be185d" stroke-width="2"/>
+<path d="M655 800 H1195 Q1200 800 1200 805 V852 H650 V805 Q650 800 655 800 Z" fill="#be185d"/>
+<text x="668" y="835" font-size="24" font-weight="bold" fill="#ffffff">DigitalProduct</text>
 <path d="M650 852 H1200" stroke="#334b70"/>
 <text x="668" y="882" font-size="20" font-weight="normal">- download_size: Real</text>
 <text x="668" y="916" font-size="20" font-weight="normal">+ download_size: Real {read-only}</text>
 <text x="668" y="950" font-size="20" font-weight="normal">+ display_information(): void</text>
 <text x="668" y="984" font-size="20" font-weight="normal">+ get_fulfilment_info(): String</text>
-<rect x="1450" y="650" width="500" height="308" rx="5" fill="white" stroke="#334b70" stroke-width="2"/>
-<text x="1468" y="685" font-size="24" font-weight="bold">Order</text>
+<rect x="1450" y="650" width="500" height="308" rx="5" fill="#fffbeb" stroke="#a16207" stroke-width="2"/>
+<path d="M1455 650 H1945 Q1950 650 1950 655 V702 H1450 V655 Q1450 650 1455 650 Z" fill="#a16207"/>
+<text x="1468" y="685" font-size="24" font-weight="bold" fill="#ffffff">Order</text>
 <path d="M1450 702 H1950" stroke="#334b70"/>
 <text x="1468" y="732" font-size="20" font-weight="normal">- order_id: String</text>
 <text x="1468" y="766" font-size="20" font-weight="normal">- order_lines: OrderLine [0..*]</text>
@@ -61,8 +66,9 @@
 <text x="1468" y="868" font-size="20" font-weight="normal">+ get_order_lines(): OrderLine [0..*]</text>
 <text x="1468" y="902" font-size="20" font-weight="normal">+ calculate_total(): Real</text>
 <text x="1468" y="936" font-size="20" font-weight="normal">+ display_information(): void</text>
-<rect x="1450" y="1120" width="500" height="274" rx="5" fill="white" stroke="#334b70" stroke-width="2"/>
-<text x="1468" y="1155" font-size="24" font-weight="bold">OrderLine</text>
+<rect x="1450" y="1120" width="500" height="274" rx="5" fill="#fff1f2" stroke="#be123c" stroke-width="2"/>
+<path d="M1455 1120 H1945 Q1950 1120 1950 1125 V1172 H1450 V1125 Q1450 1120 1455 1120 Z" fill="#be123c"/>
+<text x="1468" y="1155" font-size="24" font-weight="bold" fill="#ffffff">OrderLine</text>
 <path d="M1450 1172 H1950" stroke="#334b70"/>
 <text x="1468" y="1202" font-size="20" font-weight="normal">- product: Product</text>
 <text x="1468" y="1236" font-size="20" font-weight="normal">- quantity: Integer</text>
