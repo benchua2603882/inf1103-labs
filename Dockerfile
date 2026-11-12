@@ -8,6 +8,7 @@ COPY supplier.py order.py order_line.py ./
 COPY discount_strategy.py ./
 COPY product_factory.py ./
 COPY product_loader.py products.csv ./
+COPY tests/ ./tests/
 
 CMD ["python", "inventory_manager.py"]
 
