@@ -5,6 +5,7 @@ from inventory import Inventory
 from physical_product import PhysicalProduct
 from digital_product import DigitalProduct
 from supplier import Supplier
+from product_factory import ProductFactory
 
 
 INVENTORY_FILE = Path(__file__).with_name("inventory.json")
@@ -46,21 +47,12 @@ def load_inventory(filename: str | Path = INVENTORY_FILE) -> Inventory:
         if not isinstance(history, list):
             raise ValueError("Saved transaction history must be a list.")
         product_type = item.get("type")
-        if product_type == "physical":
-            product = PhysicalProduct(
-                item.get("id"), item.get("name"), item.get("price"),
-                item.get("stock"), item.get("weight"), supplier, history,
-            )
-        elif product_type == "digital":
-            product = DigitalProduct(
-                item.get("id"), item.get("name"), item.get("price"),
-                item.get("stock"), item.get("download_size"), supplier, history,
-            )
-        else:
-            raise ValueError(
-                f"Product {item.get('id', '(unknown)')} needs type 'physical' or 'digital' "
-                "and its weight or download size."
-            )
+        # The factory chooses the class; this function only reads saved data.
+        product = ProductFactory.create(
+            product_type, item.get("id"), item.get("name"), item.get("price"),
+            item.get("stock"), supplier, weight=item.get("weight"),
+            download_size=item.get("download_size"), transaction_history=history,
+        )
         inventory.add_product(product)
 
     print("inventory.json found.")

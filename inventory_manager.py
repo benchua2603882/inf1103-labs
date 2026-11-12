@@ -1,8 +1,7 @@
 import math
 
 from inventory_storage import load_inventory, save_inventory
-from physical_product import PhysicalProduct
-from digital_product import DigitalProduct
+from product_factory import ProductFactory
 from supplier import Supplier
 from inventory import Inventory
 from order import Order
@@ -156,12 +155,19 @@ def add_product(inventory: Inventory) -> None:
     price = round(get_valid_input("Price: ", whole_number=False), 2)
     stock = int(get_valid_input("Stock Quantity: "))
     supplier = get_supplier(inventory)
+    weight = 0.0
+    download_size = 0.0
     if product_type == "1":
         weight = get_valid_input("Weight (kg): ", whole_number=False)
-        product = PhysicalProduct(product_id, name, price, stock, weight, supplier)
+        product_type = "physical"
     else:
         download_size = get_valid_input("Download size (MB): ", whole_number=False)
-        product = DigitalProduct(product_id, name, price, stock, download_size, supplier)
+        product_type = "digital"
+    # Ask the factory to build the product after collecting its details.
+    product = ProductFactory.create(
+        product_type, product_id, name, price, stock, supplier,
+        weight=weight, download_size=download_size,
+    )
     inventory.add_product(product)
     print("Product added successfully!")
 
