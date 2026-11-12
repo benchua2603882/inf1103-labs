@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="2260" viewBox="0 0 3200 2260">
+<defs><marker id="triangle" markerWidth="15" markerHeight="15" refX="13" refY="7.5" orient="auto"><path d="M1 1 L13 7.5 L1 14 Z" fill="white" stroke="#334b70" stroke-width="1.5"/></marker><marker id="arrow" markerWidth="13" markerHeight="13" refX="12" refY="6" orient="auto"><path d="M1 1 L12 6 L1 11" fill="none" stroke="#334b70" stroke-width="1.5"/></marker></defs>
+<rect width="3200" height="2260" fill="#f5f7fb"/>
+<g font-family="Arial,sans-serif" fill="#17243a">
+<rect x="60" y="60" width="500" height="269" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+<path d="M66 60 H554 Q560 60 560 66 V112 H60 V66 Q60 60 66 60 Z" fill="#047857"/>
+<text x="78" y="95" font-size="25" fill="white" font-weight="bold">Supplier</text>
+<text x="78" y="142" font-size="23" fill="#17243a" font-weight="normal">- supplier_id: String</text>
+<text x="78" y="176" font-size="23" fill="#17243a" font-weight="normal">- name: String</text>
+<text x="78" y="210" font-size="23" fill="#17243a" font-weight="normal">- contact_email: String</text>
+<text x="78" y="244" font-size="23" fill="#17243a" font-weight="normal">+ supplier_id, name, contact_email: String</text>
+<text x="78" y="278" font-size="23" fill="#17243a" font-weight="normal">  {read only}</text>
+<text x="78" y="312" font-size="23" fill="#17243a" font-weight="normal">+ display_information(): void</text>
+<rect x="740" y="60" width="680" height="439" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+<path d="M746 60 H1414 Q1420 60 1420 66 V112 H740 V66 Q740 60 746 60 Z" fill="#1d4ed8"/>
+<text x="758" y="95" font-size="25" fill="white" font-weight="bold">Product &lt;&lt;abstract&gt;&gt;</text>
+<text x="758" y="142" font-size="23" fill="#17243a" font-weight="normal">- product_id: String; name: String</text>
+<text x="758" y="176" font-size="23" fill="#17243a" font-weight="normal">- price: Real; stock: Integer</text>
+<text x="758" y="210" font-size="23" fill="#17243a" font-weight="normal">- transaction_history: Integer [0..*]</text>
+<text x="758" y="244" font-size="23" fill="#17243a" font-weight="normal">- supplier: Supplier</text>
+<text x="758" y="278" font-size="23" fill="#17243a" font-weight="normal">+ product_id, name: String {read only}</text>
+<text x="758" y="312" font-size="23" fill="#17243a" font-weight="normal">+ price: Real; stock: Integer {read only}</text>
+<text x="758" y="346" font-size="23" fill="#17243a" font-weight="normal">+ supplier: Supplier {read only}</text>
+<text x="758" y="380" font-size="23" fill="#17243a" font-weight="normal">+ transaction_history: Integer [0..*] {read only}</text>
+<text x="758" y="414" font-size="23" fill="#17243a" font-weight="normal">+ update_stock(quantity: Integer): void</text>
+<text x="758" y="448" font-size="23" fill="#17243a" font-weight="normal">+ display_information(): void</text>
+<text x="758" y="482" font-size="23" fill="#17243a" font-weight="normal">+ get_fulfilment_info(): String {abstract}</text>
+<rect x="1600" y="60" width="620" height="303" rx="6" fill="#f0fdfa" stroke="#0f766e" stroke-width="2"/>
+<path d="M1606 60 H2214 Q2220 60 2220 66 V112 H1600 V66 Q1600 60 1606 60 Z" fill="#0f766e"/>
+<text x="1618" y="95" font-size="25" fill="white" font-weight="bold">Inventory</text>
+<text x="1618" y="142" font-size="23" fill="#17243a" font-weight="normal">- products: Product [0..*]</text>
+<text x="1618" y="176" font-size="23" fill="#17243a" font-weight="normal">+ add_product(product: Product): void</text>
+<text x="1618" y="210" font-size="23" fill="#17243a" font-weight="normal">+ find_product(id: String): Product or None</text>
+<text x="1618" y="244" font-size="23" fill="#17243a" font-weight="normal">+ search_product(id: String): Product or None</text>
+<text x="1618" y="278" font-size="23" fill="#17243a" font-weight="normal">+ remove_product(id: String): Product or None</text>
+<text x="1618" y="312" font-size="23" fill="#17243a" font-weight="normal">+ get_products(): Product [0..*]</text>
+<text x="1618" y="346" font-size="23" fill="#17243a" font-weight="normal">+ display_all(): void</text>
+<rect x="2380" y="60" width="760" height="303" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+<path d="M2386 60 H3134 Q3140 60 3140 66 V112 H2380 V66 Q2380 60 2386 60 Z" fill="#475569"/>
+<text x="2398" y="95" font-size="25" fill="white" font-weight="bold">ProductFactory</text>
+<text x="2398" y="142" font-size="23" fill="#17243a" font-weight="normal">+ create(type: String, id: String, name: String,</text>
+<text x="2398" y="176" font-size="23" fill="#17243a" font-weight="normal">    price: Real, stock: Integer, supplier: Supplier,</text>
+<text x="2398" y="210" font-size="23" fill="#17243a" font-weight="normal">    weight: Real = 0, download_size: Real = 0,</text>
+<text x="2398" y="244" font-size="23" fill="#17243a" font-weight="normal">    history: Integer [0..*] or None): Product</text>
+<text x="2398" y="278" font-size="23" fill="#17243a" font-weight="normal">    {static}</text>
+<text x="2398" y="312" font-size="23" fill="#17243a" font-weight="normal">Creates a product and returns it;</text>
+<text x="2398" y="346" font-size="23" fill="#17243a" font-weight="normal">does not store the created products.</text>
+<rect x="60" y="430" width="620" height="99" rx="6" fill="#f5f3ff" stroke="#6d28d9" stroke-width="2"/>
+<path d="M66 430 H674 Q680 430 680 436 V482 H60 V436 Q60 430 66 430 Z" fill="#6d28d9"/>
+<text x="78" y="465" font-size="25" fill="white" font-weight="bold">CanBeShipped &lt;&lt;interface&gt;&gt;</text>
+<text x="78" y="512" font-size="23" fill="#17243a" font-weight="normal">+ calculate_shipping_cost(): Real {abstract}</text>
+<rect x="60" y="700" width="620" height="235" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+<path d="M66 700 H674 Q680 700 680 706 V752 H60 V706 Q60 700 66 700 Z" fill="#c2410c"/>
+<text x="78" y="735" font-size="25" fill="white" font-weight="bold">PhysicalProduct</text>
+<text x="78" y="782" font-size="23" fill="#17243a" font-weight="normal">- weight: Real</text>
+<text x="78" y="816" font-size="23" fill="#17243a" font-weight="normal">+ weight: Real {read only}</text>
+<text x="78" y="850" font-size="23" fill="#17243a" font-weight="normal">+ display_information(): void</text>
+<text x="78" y="884" font-size="23" fill="#17243a" font-weight="normal">+ get_fulfilment_info(): String</text>
+<text x="78" y="918" font-size="23" fill="#17243a" font-weight="normal">+ calculate_shipping_cost(): Real</text>
+<rect x="800" y="700" width="620" height="201" rx="6" fill="#fdf2f8" stroke="#be185d" stroke-width="2"/>
+<path d="M806 700 H1414 Q1420 700 1420 706 V752 H800 V706 Q800 700 806 700 Z" fill="#be185d"/>
+<text x="818" y="735" font-size="25" fill="white" font-weight="bold">DigitalProduct</text>
+<text x="818" y="782" font-size="23" fill="#17243a" font-weight="normal">- download_size: Real</text>
+<text x="818" y="816" font-size="23" fill="#17243a" font-weight="normal">+ download_size: Real {read only}</text>
+<text x="818" y="850" font-size="23" fill="#17243a" font-weight="normal">+ display_information(): void</text>
+<text x="818" y="884" font-size="23" fill="#17243a" font-weight="normal">+ get_fulfilment_info(): String</text>
+<rect x="1600" y="700" width="620" height="439" rx="6" fill="#fffbeb" stroke="#a16207" stroke-width="2"/>
+<path d="M1606 700 H2214 Q2220 700 2220 706 V752 H1600 V706 Q1600 700 1606 700 Z" fill="#a16207"/>
+<text x="1618" y="735" font-size="25" fill="white" font-weight="bold">Order</text>
+<text x="1618" y="782" font-size="23" fill="#17243a" font-weight="normal">- order_id: String</text>
+<text x="1618" y="816" font-size="23" fill="#17243a" font-weight="normal">- order_lines: OrderLine [0..*]</text>
+<text x="1618" y="850" font-size="23" fill="#17243a" font-weight="normal">- discount: DiscountStrategy</text>
+<text x="1618" y="884" font-size="23" fill="#17243a" font-weight="normal">+ order_id: String {read only}</text>
+<text x="1618" y="918" font-size="23" fill="#17243a" font-weight="normal">+ add_order_line(product: Product,</text>
+<text x="1618" y="952" font-size="23" fill="#17243a" font-weight="normal">    quantity: Integer): void</text>
+<text x="1618" y="986" font-size="23" fill="#17243a" font-weight="normal">+ remove_order_line(number: Integer): void</text>
+<text x="1618" y="1020" font-size="23" fill="#17243a" font-weight="normal">+ get_order_lines(): OrderLine [0..*]</text>
+<text x="1618" y="1054" font-size="23" fill="#17243a" font-weight="normal">+ set_discount(strategy: DiscountStrategy): void</text>
+<text x="1618" y="1088" font-size="23" fill="#17243a" font-weight="normal">+ calculate_total(): Real</text>
+<text x="1618" y="1122" font-size="23" fill="#17243a" font-weight="normal">+ display_information(): void</text>
+<rect x="1600" y="1300" width="620" height="235" rx="6" fill="#fff1f2" stroke="#be123c" stroke-width="2"/>
+<path d="M1606 1300 H2214 Q2220 1300 2220 1306 V1352 H1600 V1306 Q1600 1300 1606 1300 Z" fill="#be123c"/>
+<text x="1618" y="1335" font-size="25" fill="white" font-weight="bold">OrderLine</text>
+<text x="1618" y="1382" font-size="23" fill="#17243a" font-weight="normal">- product: Product; quantity: Integer</text>
+<text x="1618" y="1416" font-size="23" fill="#17243a" font-weight="normal">+ product: Product {read only}</text>
+<text x="1618" y="1450" font-size="23" fill="#17243a" font-weight="normal">+ quantity: Integer {read only}</text>
+<text x="1618" y="1484" font-size="23" fill="#17243a" font-weight="normal">+ calculate_subtotal(): Real</text>
+<text x="1618" y="1518" font-size="23" fill="#17243a" font-weight="normal">+ display_information(): void</text>
+<rect x="2380" y="700" width="760" height="99" rx="6" fill="#f5f3ff" stroke="#6d28d9" stroke-width="2"/>
+<path d="M2386 700 H3134 Q3140 700 3140 706 V752 H2380 V706 Q2380 700 2386 700 Z" fill="#6d28d9"/>
+<text x="2398" y="735" font-size="25" fill="white" font-weight="bold">DiscountStrategy &lt;&lt;abstract&gt;&gt;</text>
+<text x="2398" y="782" font-size="23" fill="#17243a" font-weight="normal">+ apply(total: Real): Real {abstract}</text>
+<rect x="60" y="1830" width="620" height="99" rx="6" fill="#f0fdfa" stroke="#0f766e" stroke-width="2"/>
+<path d="M66 1830 H674 Q680 1830 680 1836 V1882 H60 V1836 Q60 1830 66 1830 Z" fill="#0f766e"/>
+<text x="78" y="1865" font-size="25" fill="white" font-weight="bold">NoDiscount</text>
+<text x="78" y="1912" font-size="23" fill="#17243a" font-weight="normal">+ apply(total: Real): Real</text>
+<rect x="800" y="1830" width="620" height="133" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+<path d="M806 1830 H1414 Q1420 1830 1420 1836 V1882 H800 V1836 Q800 1830 806 1830 Z" fill="#1d4ed8"/>
+<text x="818" y="1865" font-size="25" fill="white" font-weight="bold">PercentageDiscount</text>
+<text x="818" y="1912" font-size="23" fill="#17243a" font-weight="normal">- percentage: Real</text>
+<text x="818" y="1946" font-size="23" fill="#17243a" font-weight="normal">+ apply(total: Real): Real</text>
+<rect x="1600" y="1830" width="620" height="133" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+<path d="M1606 1830 H2214 Q2220 1830 2220 1836 V1882 H1600 V1836 Q1600 1830 1606 1830 Z" fill="#c2410c"/>
+<text x="1618" y="1865" font-size="25" fill="white" font-weight="bold">BulkDiscount</text>
+<text x="1618" y="1912" font-size="23" fill="#17243a" font-weight="normal">- threshold: Real; amount: Real</text>
+<text x="1618" y="1946" font-size="23" fill="#17243a" font-weight="normal">+ apply(total: Real): Real</text>
+<rect x="2380" y="1830" width="760" height="133" rx="6" fill="#fdf2f8" stroke="#be185d" stroke-width="2"/>
+<path d="M2386 1830 H3134 Q3140 1830 3140 1836 V1882 H2380 V1836 Q2380 1830 2386 1830 Z" fill="#be185d"/>
+<text x="2398" y="1865" font-size="25" fill="white" font-weight="bold">StudentDiscount</text>
+<text x="2398" y="1912" font-size="23" fill="#17243a" font-weight="normal">+ apply(total: Real): Real</text>
+<text x="2398" y="1946" font-size="23" fill="#17243a" font-weight="normal">Applies a fixed 5 percent discount.</text>
+<path d="M560 220 H740" fill="none" stroke="#334b70" stroke-width="2.5"/>
+<text x="575" y="204" font-size="20" fill="#17243a" font-weight="normal">1</text>
+<text x="680" y="204" font-size="20" fill="#17243a" font-weight="normal">0..*</text>
+<text x="593" y="251" font-size="20" fill="#17243a" font-weight="normal">supplies</text>
+<path d="M1600 250 L1585 241 L1570 250 L1585 259 Z M1570 250 H1420" fill="none" stroke="#334b70" stroke-width="2.5"/>
+<text x="1430" y="231" font-size="20" fill="#17243a" font-weight="normal">0..*</text>
+<text x="1530" y="231" font-size="20" fill="#17243a" font-weight="normal">0..*</text>
+<text x="1460" y="283" font-size="20" fill="#17243a" font-weight="normal">stores</text>
+<path d="M370 700 V630 H920 V499" fill="none" stroke="#334b70" stroke-width="2.5" marker-end="url(#triangle)"/>
+<path d="M1110 700 V499" fill="none" stroke="#334b70" stroke-width="2.5" marker-end="url(#triangle)"/>
+<path d="M200 700 V529" fill="none" stroke="#334b70" stroke-width="2.5" stroke-dasharray="9 7" marker-end="url(#triangle)"/>
+<path d="M1910 1139 l-9 15 l9 15 l9 -15 Z" fill="#334b70" stroke="#334b70" stroke-width="2.5"/>
+<path d="M1910 1169 V1300" fill="none" stroke="#334b70" stroke-width="2.5"/>
+<text x="1930" y="1164" font-size="20" fill="#17243a" font-weight="normal">1</text>
+<text x="1930" y="1282" font-size="20" fill="#17243a" font-weight="normal">0..*</text>
+<text x="1930" y="1220" font-size="20" fill="#17243a" font-weight="normal">owns</text>
+<path d="M1600 1410 H1490 V420 H1420" fill="none" stroke="#334b70" stroke-width="2.5"/>
+<text x="1530" y="1394" font-size="20" fill="#17243a" font-weight="normal">0..*</text>
+<text x="1435" y="406" font-size="20" fill="#17243a" font-weight="normal">1</text>
+<text x="1505" y="660" font-size="19" fill="#17243a" font-weight="normal">refers to</text>
+<path d="M2220 765 H2380" fill="none" stroke="#334b70" stroke-width="2.5"/>
+<text x="2230" y="749" font-size="20" fill="#17243a" font-weight="normal">0..*</text>
+<text x="2345" y="749" font-size="20" fill="#17243a" font-weight="normal">1</text>
+<text x="2265" y="797" font-size="20" fill="#17243a" font-weight="normal">uses</text>
+<path d="M2380 230 H2300 V25 H1320 V60" fill="none" stroke="#334b70" stroke-width="2.5" stroke-dasharray="9 7" marker-end="url(#arrow)"/>
+<text x="1800" y="18" font-size="19" fill="#17243a" font-weight="normal">creates</text>
+<path d="M2760 1720 V799" fill="none" stroke="#334b70" stroke-width="2.5" marker-end="url(#triangle)"/>
+<path d="M370 1720 H2760" fill="none" stroke="#334b70" stroke-width="2.5"/>
+<path d="M370 1830 V1720" fill="none" stroke="#334b70" stroke-width="2.5"/>
+<path d="M1110 1830 V1720" fill="none" stroke="#334b70" stroke-width="2.5"/>
+<path d="M1910 1830 V1720" fill="none" stroke="#334b70" stroke-width="2.5"/>
+<path d="M2760 1830 V1720" fill="none" stroke="#334b70" stroke-width="2.5"/>
+<text x="60" y="2130" font-size="24" fill="#17243a" font-weight="normal">Solid hollow triangle: inheritance     Dashed hollow triangle: interface realisation</text>
+<text x="60" y="2170" font-size="24" fill="#17243a" font-weight="normal">Plain line: association     Hollow diamond: aggregation     Filled diamond: composition     Dashed open arrow: dependency</text>
+<text x="60" y="2210" font-size="24" fill="#17243a" font-weight="normal">Diamonds are at the whole end. Each Order uses one strategy; a strategy can be shared by 0..* orders.</text>
+</g></svg>
