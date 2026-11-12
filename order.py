@@ -1,15 +1,26 @@
 from product import Product
 from order_line import OrderLine
+from discount_strategy import DiscountStrategy, NoDiscount
 
 
 class Order:
     """Create and manage the lines belonging to one order."""
 
-    def __init__(self, order_id: str) -> None:
+    def __init__(self, order_id: str, discount: DiscountStrategy | None = None) -> None:
         if not isinstance(order_id, str) or not order_id.strip():
             raise ValueError("Order ID cannot be empty.")
         self.__order_id: str = order_id.strip().upper()
         self.__order_lines: list[OrderLine] = []
+        # Use no discount by default so the older order menu still works.
+        self.__discount: DiscountStrategy = NoDiscount()
+        if discount is not None:
+            self.set_discount(discount)
+
+    def set_discount(self, discount: DiscountStrategy) -> None:
+        # Keep the supplied object so two orders can share the same strategy.
+        if not isinstance(discount, DiscountStrategy):
+            raise TypeError("Discount must be a DiscountStrategy object.")
+        self.__discount = discount
 
     @property
     def order_id(self) -> str:
@@ -35,7 +46,8 @@ class Order:
         total = 0.0
         for line in self.__order_lines:
             total += line.calculate_subtotal()
-        return total
+        # Let the strategy calculate the discount instead of checking its type.
+        return self.__discount.apply(total)
 
     def display_information(self) -> None:
         print(f"\nOrder: {self.__order_id}")

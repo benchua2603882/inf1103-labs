@@ -7,6 +7,7 @@ from supplier import Supplier
 from inventory import Inventory
 from order import Order
 from product import Product
+from discount_strategy import NoDiscount, PercentageDiscount, BulkDiscount, StudentDiscount
 
 
 def show_product_details(product: Product) -> None:
@@ -46,6 +47,38 @@ def display_orders(orders: dict[str, Order]) -> None:
         print("No orders in this session.")
     for order in orders.values():
         order.display_information()
+
+
+def change_order_discount(orders: dict[str, Order]) -> None:
+    # Choose a strategy here; Order only needs to know its apply() method.
+    order = orders.get(input("Order ID: ").strip().upper())
+    if order is None:
+        print("Order not found.")
+        return
+    while True:
+        print("1. No discount\n2. Percentage discount\n3. Bulk discount\n4. Student discount (5%)")
+        choice = input("Choose discount (1 to 4): ").strip()
+        try:
+            if choice == "1":
+                order.set_discount(NoDiscount())
+            elif choice == "2":
+                percentage = get_valid_input("Percentage: ", whole_number=False)
+                order.set_discount(PercentageDiscount(percentage))
+            elif choice == "3":
+                threshold = get_valid_input("Minimum order total: ", whole_number=False)
+                amount = get_valid_input("Amount to take off: ", whole_number=False)
+                order.set_discount(BulkDiscount(threshold, amount))
+            elif choice == "4":
+                order.set_discount(StudentDiscount())
+            else:
+                print("Invalid discount. Please choose 1 to 4.")
+                continue
+        except ValueError as error:
+            print(error)
+            continue
+        print("Order discount updated.")
+        order.display_information()
+        return
 
 
 def remove_order_line(orders: dict[str, Order]) -> None:
@@ -171,6 +204,7 @@ def main() -> None:
         print("7. Create Order")
         print("8. Display Orders")
         print("9. Remove Order Line")
+        print("10. Change Order Discount")
         print("----------------------------")
         option = input("Enter option: ").strip()
 
@@ -204,8 +238,10 @@ def main() -> None:
             display_orders(orders)
         elif option == "9":
             remove_order_line(orders)
+        elif option == "10":
+            change_order_discount(orders)
         else:
-            print("Invalid option. Please choose 1 to 9.")
+            print("Invalid option. Please choose 1 to 10.")
 
 
 if __name__ == "__main__":
