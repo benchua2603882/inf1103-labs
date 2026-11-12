@@ -2,6 +2,7 @@ import math
 
 from inventory_storage import load_inventory, save_inventory
 from product_factory import ProductFactory
+from product_loader import load_products
 from supplier import Supplier
 from inventory import Inventory
 from order import Order
@@ -131,6 +132,31 @@ def get_valid_input(prompt: str, whole_number: bool = True) -> int | float:
             print(f"Error: Enter a non-negative {kind}.")
 
 
+def get_positive_float(prompt: str) -> float:
+    # Keep asking for a price until it is a finite number above zero.
+    while True:
+        try:
+            value = float(input(prompt))
+        except ValueError:
+            print("Please enter a valid number, e.g. 12.50")
+            continue
+        if not math.isfinite(value):
+            print("Please enter a finite number.")
+            continue
+        if value <= 0:
+            print("Please enter a number greater than zero.")
+            continue
+        return value
+
+
+def import_products(inventory: Inventory) -> None:
+    # Ask which supplier to share between the products in this CSV.
+    path = input("CSV path (Enter for products.csv): ").strip() or "products.csv"
+    supplier = get_supplier(inventory)
+    print("CSV products use 0 for weight or download size because these columns are not provided.")
+    load_products(path, inventory, supplier)
+
+
 def add_product(inventory: Inventory) -> None:
     # Collect the chosen product type and its details, then add the new object.
     print("\nAdd New Product")
@@ -152,7 +178,7 @@ def add_product(inventory: Inventory) -> None:
     if not name:
         print("Error: Product name cannot be empty.")
         return
-    price = round(get_valid_input("Price: ", whole_number=False), 2)
+    price = get_positive_float("Price: ")
     stock = int(get_valid_input("Stock Quantity: "))
     supplier = get_supplier(inventory)
     weight = 0.0
@@ -211,6 +237,7 @@ def main() -> None:
         print("8. Display Orders")
         print("9. Remove Order Line")
         print("10. Change Order Discount")
+        print("11. Load Products from CSV")
         print("----------------------------")
         option = input("Enter option: ").strip()
 
@@ -246,8 +273,10 @@ def main() -> None:
             remove_order_line(orders)
         elif option == "10":
             change_order_discount(orders)
+        elif option == "11":
+            import_products(inventory)
         else:
-            print("Invalid option. Please choose 1 to 10.")
+            print("Invalid option. Please choose 1 to 11.")
 
 
 if __name__ == "__main__":

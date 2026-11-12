@@ -13,8 +13,8 @@ class Product(ABC):
             raise ValueError("Product ID cannot be empty.")
         if not isinstance(name, str) or not name.strip():
             raise ValueError("Product name cannot be empty.")
-        if type(price) not in (int, float) or not math.isfinite(price) or price < 0:
-            raise ValueError("Price must be a finite, non-negative number.")
+        if type(price) not in (int, float) or not math.isfinite(price) or price <= 0:
+            raise ValueError("Price must be a finite number greater than zero.")
         self._validate_stock(stock)
         if not isinstance(supplier, Supplier):
             raise TypeError("Supplier must be a Supplier object.")
